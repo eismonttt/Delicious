@@ -1,0 +1,23 @@
+﻿<Page x:Class="Delicious.LoginWindowPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Delicious"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="400" Title="LoginWindowPage">
+
+    <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+
+        <StackPanel>
+            <TextBlock Style="{DynamicResource LoginWindowText}" Text="Добро пожаловать" Margin="32 0 0 10"/>
+            <Button Style="{DynamicResource LongControlButton}" Click="OpenLoginPage" Content="Зарегистрироваться"/>
+        </StackPanel>
+
+        <StackPanel Margin="0 60 0 0">
+            <TextBlock Text="Уже есть Личный кабинет" Margin="0 0 0 10" Style="{DynamicResource LoginWindowText}"/>
+            <Button Style="{DynamicResource LongControlButton}" Click="OpenSignPage" Content="Войти"/>
+        </StackPanel>
+
+    </StackPanel>
+</Page>

@@ -1,0 +1,94 @@
+﻿<Page x:Class="Delicious.RestaurantPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Delicious"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800" Title="RestaurantPage">
+ 
+    <ScrollViewer>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="200"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Border>
+                <Border.Background>
+                    <ImageBrush 
+                            Stretch="UniformToFill"
+                            x:Name="restHeaderImage"/>
+                </Border.Background>
+                <Grid>
+                    <Grid.Background>
+                        <SolidColorBrush Color="{DynamicResource WhiteOpacityBackground}"/>
+                    </Grid.Background>
+                    <Button Click="BackPage" HorizontalAlignment="Left" VerticalAlignment="Top" Style="{DynamicResource BackButton}">
+                        <Image Stretch="Uniform" Source="Images/back-arrow.png"/>
+                    </Button>
+                    <TextBlock Style="{DynamicResource HeaderTitleText}" Name="title"/>
+
+                </Grid>
+            </Border>
+            <StackPanel Margin="60 40" Grid.Row="1">
+                <Border Padding="20 30">
+                    <StackPanel>
+                        <TextBlock Style="{DynamicResource PageTitleText}" Text="О ресторане"/>
+                        <Grid Margin="0 20 0 0" HorizontalAlignment="Center" Width="400">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="3*"/>
+                                <ColumnDefinition Width="10"/>
+                                <ColumnDefinition Width="5*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+
+                            <TextBlock TextAlignment="Right" Text="Адрес:" Style="{DynamicResource PageDescrText}"/>
+                            <StackPanel Grid.Column="2">
+                                <TextBlock Style="{DynamicResource PageDescrText}" Name="location"/>
+                            </StackPanel>
+
+                            <TextBlock TextAlignment="Right" Style="{DynamicResource PageDescrText}" Grid.Row="1" Text="Открытие:"/>
+
+                            <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="2">
+                                <TextBlock Style="{DynamicResource PageDescrText}" Name="opensTime"/>
+                                <TextBlock VerticalAlignment="Center" Text=""/>
+                            </StackPanel>
+
+                            <TextBlock TextAlignment="Right" Style="{DynamicResource PageDescrText}" Grid.Row="2" Text="Закрытие:"/>
+
+                            <StackPanel Orientation="Horizontal" Grid.Row="2" Grid.Column="2">
+                                <TextBlock Style="{DynamicResource PageDescrText}" Name="closesTime"/>
+                                <TextBlock VerticalAlignment="Center" Text=""/>
+                            </StackPanel>
+
+                        </Grid>
+                    </StackPanel>
+                </Border>
+
+                <StackPanel Margin=" 0 40 0 0">
+                    <TextBlock Style="{DynamicResource PageTitleText}" Text="Бронирование"/>
+                    <ItemsControl Margin="0 20 0 0" Name="placesContainer"/>
+                </StackPanel>
+
+                <StackPanel Margin=" 0 40 0 0">
+                    <TextBlock Style="{DynamicResource PageTitleText}" Text="Меню"/>
+                    <ItemsControl Margin="0 20 0 0" Name="dishesContainer">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <WrapPanel ItemWidth="300" ItemHeight="400"/>
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                    </ItemsControl>
+                </StackPanel>
+            </StackPanel>
+        </Grid>
+    </ScrollViewer>
+</Page>

@@ -1,0 +1,38 @@
+﻿<Page x:Class="Delicious.UserPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Delicious"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800" Title="UserPage">
+
+    <ScrollViewer>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="200"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Border>
+                <Border.Background>
+                    <ImageBrush Stretch="UniformToFill" ImageSource="Images/userbg.jpg"/>
+                </Border.Background>
+                <Grid Background="#66ffFFff">
+                    <TextBlock Style="{DynamicResource HeaderTitleText}" Name="userRealName"/>
+                </Grid>
+            </Border>
+
+            <Border Margin="60 40" Grid.Row="1">
+                <StackPanel>
+                    <TextBlock Style="{DynamicResource PageTitleText}" Text="Актуальные заказы"/>
+                    <ItemsControl Margin="0 20 0 0" Name="ordersContainer"/>
+                </StackPanel>
+            </Border>
+
+            <Button MinWidth="200" Grid.Row="2" Content="Выйти" HorizontalAlignment="Center" VerticalAlignment="Center"
+                    Style="{DynamicResource LongControlButton}" Click="Button_Click"/>
+        </Grid>
+    </ScrollViewer>
+</Page>
