@@ -1,9 +1,11 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Windows;
+using System.Windows.Input;
 
 namespace Delicious
 {
@@ -109,15 +111,59 @@ namespace Delicious
             }
         }
 
-        private class AdminPageViewModel : INotifyPropertyChanged
+        private class AdminPageViewModel : ICommand
         {
-            public event PropertyChangedEventHandler PropertyChanged;
+            private class SaveChangesCommand : ICommand
+            {
+                public event EventHandler CanExecuteChanged
+                {
+                    add => CommandManager.RequerySuggested += value;
+                    remove => CommandManager.RequerySuggested -= value;
+                }
+
+                public bool CanExecute(object parameter)
+                {
+                    
+                }
+
+                public void Execute(object parameter)
+                {
+                    var changedRestaraunts = restaurants
+                        .Intersect(originRestaraunts)
+
+                        .ToArray();
+
+                    var newRestaraunts = restaurants
+                        .Except(originRestaraunts)
+                        .Select(x => x.Restaurants)
+                        .ToArray();
+
+                    var deletedRestoraunts = originRestaraunts
+                        .Except(changedRestaraunts)
+                        .Select(x => x.Restaurants)
+                        .ToArray();
+
+                    deliciousEntities.Restaurants.BulkUpdate(changedRestaraunts.Select(x => x.Restaurants));
+                    deliciousEntities.Restaurants.AddRange(newRestaraunts);
+                    deliciousEntities.Restaurants.RemoveRange(deletedRestoraunts);
+                    deliciousEntities.SaveChanges();
+                }
+
+                public SaveChangesCommand()
+                {
+
+                }
+            }
 
             private readonly DeliciousEntities deliciousEntities;
             private readonly ObservableCollection<RestourauntsViewModel> restaurants;
             private readonly List<RestourauntsViewModel> originRestaraunts;
 
-            public bool CanSaveChanges => !restaurants.Any(x => x.FreePlaces < 0);
+            public event EventHandler CanExecuteChanged
+            {
+                add => CommandManager.RequerySuggested += value;
+                remove => CommandManager.RequerySuggested -= value;
+            }
 
             public AdminPageViewModel()
             {
@@ -144,12 +190,16 @@ namespace Delicious
                 return restaurants;
             }
 
-            public void Save()
+            public bool CanExecute(object parameter)
+            {
+                return !restaurants.Any(x => x.FreePlaces < 0);
+            }
+
+            public void Execute(object parameter)
             {
                 var changedRestaraunts = restaurants
-               .Intersect(originRestaraunts)
-
-               .ToArray();
+                    .Intersect(originRestaraunts)
+                    .ToArray();
 
                 var newRestaraunts = restaurants
                     .Except(originRestaraunts)
@@ -185,8 +235,6 @@ namespace Delicious
 
         private void OnSave(object sender, RoutedEventArgs e)
         {
-           dataContext.Save();
-
             DialogResult = true;
         }
 
