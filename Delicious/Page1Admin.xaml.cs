@@ -82,6 +82,11 @@ namespace Delicious
 
             }
 
+            public RestourauntsViewModel()
+            {
+                Restaurants = new Restaurants();
+            }
+
         }
 
 
