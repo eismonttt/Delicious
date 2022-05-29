@@ -1,4 +1,5 @@
-﻿using System.Collections.ObjectModel;
+﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Windows;
@@ -76,30 +77,47 @@ namespace Delicious
 
 
         public DeliciousEntities deliciousEntities;
-        private ObservableCollection<RestourauntsViewModel> restaurants;
+        private readonly ObservableCollection<RestourauntsViewModel> restaurants;
+        private readonly List<RestourauntsViewModel> originRestaraunts;
         public Page1Admin()
         {
             InitializeComponent();
             deliciousEntities = new DeliciousEntities();
+            restaurants = new ObservableCollection<RestourauntsViewModel>();
+            originRestaraunts = new List<RestourauntsViewModel>();
             Loaded += OnLoaded;
         }
 
         private void OnLoaded(object sender, RoutedEventArgs e)
         {
-            var usersFromDB = deliciousEntities
+            deliciousEntities
                 .Restaurants
                 .ToArray()
-                .Select(x => new RestourauntsViewModel(x));
+                .Select(x => new RestourauntsViewModel(x))
+                .ToList()
+                .ForEach(x =>
+                {
+                    restaurants.Add(x);
+                    originRestaraunts.Add(x);
+                });
 
-
-            restaurants = new ObservableCollection<RestourauntsViewModel>(usersFromDB);
             restGrid.ItemsSource= restaurants;
         }
 
         private void OnSave(object sender, RoutedEventArgs e)
         {
-            var changedRestaraunts = restaurants.Select(x => x.Restaurants).ToArray();
+            var changedRestaraunts = restaurants
+                .Intersect(originRestaraunts)
+                .Select(x => x.Restaurants)
+                .ToArray();
+
+            var newRestaraunts = restaurants
+                .Except(originRestaraunts)
+                .Select(x => x.Restaurants)
+                .ToArray();
+
             deliciousEntities.Restaurants.BulkUpdate(changedRestaraunts);
+            deliciousEntities.Restaurants.AddRange(newRestaraunts);
             deliciousEntities.SaveChanges();
             DialogResult = true;
         }
