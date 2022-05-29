@@ -13,57 +13,52 @@ namespace Delicious
         private class RestourauntsViewModel : INotifyPropertyChanged
         {
             public Restaurants Restaurants { get; }
-            private string name;
-            private string location;
-            private string image;
-            private int? opensTime;
-            private int? closesTime;
 
             public event PropertyChangedEventHandler PropertyChanged;
 
             public int Id { get; set; }
             public string Name
             {
-                get => name;
+                get => Restaurants.Name;
                 set
                 {
-                    name = value;
+                    Restaurants.Name = value;
                     PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Name)));
                 }
             }
             public string Location
             {
-                get => location;
+                get => Restaurants.Location;
                 set
                 {
-                    location = value;
+                    Restaurants.Location = value;
                     PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Location)));
                 }
             }
             public string Image
             {
-                get => image;
+                get => Restaurants.Image;
                 set
                 {
-                    image = value;
+                    Restaurants.Image = value;
                     PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Image)));
                 }
             }
             public int? OpensTime
             {
-                get => opensTime;
+                get => Restaurants.OpensTime;
                 set
                 {
-                    opensTime = value;
+                    Restaurants.OpensTime = value;
                     PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(OpensTime)));
                 }
             }
             public int? ClosesTime
             {
-                get => closesTime;
+                get => Restaurants.ClosesTime;
                 set
                 {
-                    closesTime = value;
+                    Restaurants.ClosesTime = value;
                     PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(ClosesTime)));
                 }
             }
