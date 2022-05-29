@@ -1,19 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Collections.Specialized;
+﻿using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace Delicious
 {
@@ -22,8 +10,72 @@ namespace Delicious
     /// </summary>
     public partial class Page1Admin : Window
     {
-        private readonly DeliciousEntities deliciousEntities;
-        private ObservableCollection<Restaurants> restaurants;
+        private class RestourauntsViewModel : INotifyPropertyChanged
+        {
+            public Restaurants Restaurants { get; }
+            private string name;
+            private string location;
+            private string image;
+            private int? opensTime;
+            private int? closesTime;
+
+            public event PropertyChangedEventHandler PropertyChanged;
+
+            public int Id { get; set; }
+            public string Name
+            {
+                get => name;
+                set
+                {
+                    name = value;
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Name)));
+                }
+            }
+            public string Location
+            {
+                get => location;
+                set
+                {
+                    location = value;
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Location)));
+                }
+            }
+            public string Image
+            {
+                get => image;
+                set
+                {
+                    image = value;
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Image)));
+                }
+            }
+            public int? OpensTime
+            {
+                get => opensTime;
+                set
+                {
+                    opensTime = value;
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(OpensTime)));
+                }
+            }
+            public int? ClosesTime
+            {
+                get => closesTime;
+                set
+                {
+                    closesTime = value;
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(ClosesTime)));
+                }
+            }
+
+            public RestourauntsViewModel(Restaurants restaurants)
+            {
+                Restaurants = restaurants;
+            }
+        }
+
+        public DeliciousEntities deliciousEntities;
+        private ObservableCollection<RestourauntsViewModel> restaurants;
         public Page1Admin()
         {
             InitializeComponent();
@@ -33,27 +85,25 @@ namespace Delicious
 
         private void OnLoaded(object sender, RoutedEventArgs e)
         {
-            var usersFromDB = deliciousEntities.Restaurants.ToArray();
-            restaurants = new ObservableCollection<Restaurants>(usersFromDB);
-            restGrid.ItemsSource= restaurants;
-            restaurants.CollectionChanged += OnChanged;
+            var usersFromDB = deliciousEntities
+                .Restaurants
+                .Select(x => new RestourauntsViewModel(x))
+                .ToArray();
 
+            restaurants = new ObservableCollection<RestourauntsViewModel>(usersFromDB);
+            restGrid.ItemsSource= restaurants;
         }
 
-        private void OnChanged(object sender, NotifyCollectionChangedEventArgs e)
+        private void OnSave(object sender, RoutedEventArgs e)
         {
-            var items = e.NewItems as IEnumerable<Restaurants>;
-            if (items == null || items.Any(x => x.ClosesTime == null || x.Image == null || x.Name==null || x.Location==null || x.OpensTime==null))
-            {
-                return;
-            }
-            switch (e.Action)
-            {
-                case NotifyCollectionChangedAction.Add:
-                    deliciousEntities.Restaurants.AddRange(items);
-                    deliciousEntities.SaveChanges();
-                    break;
-            }
+            var changedRestaraunts = restaurants.Select(x => x.Restaurants).ToArray();
+            deliciousEntities.BulkUpdate(changedRestaraunts);
+            deliciousEntities.SaveChanges();
+        }
+
+        private void OnCancel(object sender, RoutedEventArgs e)
+        {
+            Close();
         }
     }
 }
