@@ -16,5 +16,16 @@
                 <DataGridTextColumn Header="qwe" Binding="{Binding Image}"/>
             </DataGrid.Columns>
         </DataGrid>
+        <StackPanel Orientation="Horizontal"
+                    Width="120"
+                    Height="30"
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Center"
+                    >
+            <Button Content="Отмена" Click="OnCancel"/>
+            <Button Content="Сохранить" 
+                    Margin="10 0 10 0" 
+                    Click="OnSave"/>
+        </StackPanel>
     </Grid>
 </Window>
