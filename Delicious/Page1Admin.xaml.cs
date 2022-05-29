@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Collections.Specialized;
 using System.ComponentModel;
 using System.Linq;
 using System.Windows;
@@ -73,16 +74,17 @@ namespace Delicious
                 get => RestaurantsPlaces.PlaceCount;
                 set
                 {
+                    var placesDiff = RestaurantsPlaces.PlaceCount - value;
                     RestaurantsPlaces.PlaceCount = value;
                     Places.PlaceCapacity = value;
-                    if (IsNew)
-                    {
-                        RestaurantsPlaces.CurrentPlaceCount = value;
-                    }
+                    RestaurantsPlaces.CurrentPlaceCount -= placesDiff;
 
                     PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Capacity)));
                 }
             }
+
+            public int BookPlaces => Capacity - RestaurantsPlaces.CurrentPlaceCount;
+            public int FreePlaces => Capacity - BookPlaces;
 
             public RestourauntsViewModel(Restaurants restaurants)
             {
@@ -97,7 +99,6 @@ namespace Delicious
                 }
                 RestaurantsPlaces = Restaurants.RestaurantsPlaces.First();
                 Places = RestaurantsPlaces.Places;
-                IsNew |= false;
             }
 
             public RestourauntsViewModel() : this(new Restaurants())
@@ -105,7 +106,6 @@ namespace Delicious
                 IsNew |= true;
             }
         }
-
 
         public DeliciousEntities deliciousEntities;
         private readonly ObservableCollection<RestourauntsViewModel> restaurants;
@@ -115,8 +115,14 @@ namespace Delicious
             InitializeComponent();
             deliciousEntities = new DeliciousEntities();
             restaurants = new ObservableCollection<RestourauntsViewModel>();
+            restaurants.CollectionChanged += OnCollectionChanged;
             originRestaraunts = new List<RestourauntsViewModel>();
             Loaded += OnLoaded;
+        }
+
+        private void OnCollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
+        {
+            SaveChanges.IsEnabled = !restaurants.Any(x => x.FreePlaces < 0);
         }
 
         private void OnLoaded(object sender, RoutedEventArgs e)
@@ -141,7 +147,7 @@ namespace Delicious
         {
             var changedRestaraunts = restaurants
                 .Intersect(originRestaraunts)
-                .Select(x => x.Restaurants)
+                
                 .ToArray();
 
             var newRestaraunts = restaurants
@@ -149,8 +155,14 @@ namespace Delicious
                 .Select(x => x.Restaurants)
                 .ToArray();
 
-            deliciousEntities.Restaurants.BulkUpdate(changedRestaraunts);
+            var deletedRestoraunts = originRestaraunts
+                .Except(changedRestaraunts)
+                .Select(x => x.Restaurants)
+                .ToArray();
+
+            deliciousEntities.Restaurants.BulkUpdate(changedRestaraunts.Select(x => x.Restaurants));
             deliciousEntities.Restaurants.AddRange(newRestaraunts);
+            deliciousEntities.Restaurants.RemoveRange(deletedRestoraunts);
             deliciousEntities.SaveChanges();
 
             DialogResult = true;
