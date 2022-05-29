@@ -66,8 +66,14 @@ namespace Delicious
             public RestourauntsViewModel(Restaurants restaurants)
             {
                 Restaurants = restaurants;
+
+            }
+            public RestourauntsViewModel()
+            {
+                Restaurants = new Restaurants();
             }
         }
+
 
         public DeliciousEntities deliciousEntities;
         private ObservableCollection<RestourauntsViewModel> restaurants;
@@ -84,6 +90,7 @@ namespace Delicious
                 .Restaurants
                 .ToArray()
                 .Select(x => new RestourauntsViewModel(x));
+
 
             restaurants = new ObservableCollection<RestourauntsViewModel>(usersFromDB);
             restGrid.ItemsSource= restaurants;
