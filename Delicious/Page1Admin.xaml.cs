@@ -99,7 +99,7 @@ namespace Delicious
         private void OnSave(object sender, RoutedEventArgs e)
         {
             var changedRestaraunts = restaurants.Select(x => x.Restaurants).ToArray();
-            deliciousEntities.BulkUpdate(changedRestaraunts);
+            deliciousEntities.Restaurants.BulkUpdate(changedRestaraunts);
             deliciousEntities.SaveChanges();
             DialogResult = true;
         }
