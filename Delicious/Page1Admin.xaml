@@ -15,6 +15,7 @@
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Название" Binding="{Binding Name}"/>
                 <DataGridTextColumn Header="Расположение" Binding="{Binding Location}"/>
+                <DataGridTextColumn Header="Кол-во мест в ресторане" Binding="{Binding Capacity}"/>
                 <DataGridTextColumn Header="Фото" Binding="{Binding Image}"/>
                 <DataGridTextColumn Header="открытие" Binding="{Binding OpensTime}"/>
                 <DataGridTextColumn Header="Закрытие" Binding="{Binding ClosesTime}"/>

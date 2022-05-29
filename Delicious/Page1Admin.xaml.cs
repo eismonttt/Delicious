@@ -13,6 +13,8 @@ namespace Delicious
     {
         private class RestourauntsViewModel : INotifyPropertyChanged
         {
+            private int capacity;
+
             public Restaurants Restaurants { get; }
 
             public event PropertyChangedEventHandler PropertyChanged;
@@ -64,12 +66,22 @@ namespace Delicious
                 }
             }
 
+            public int Capacity
+            {
+                get => capacity;
+                set
+                {
+                    capacity = value;
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Capacity)));
+                }
+            }
+
             public RestourauntsViewModel(Restaurants restaurants)
             {
                 Restaurants = restaurants;
 
             }
-           
+
         }
 
 
@@ -89,6 +101,7 @@ namespace Delicious
         {
             deliciousEntities
                 .Restaurants
+                .Include(x => x.RestaurantsPlaces)
                 .ToArray()
                 .Select(x => new RestourauntsViewModel(x))
                 .ToList()
@@ -105,28 +118,20 @@ namespace Delicious
         {
             var changedRestaraunts = restaurants
                 .Intersect(originRestaraunts)
-                .Select(x => x.Restaurants)
                 .ToArray();
 
             var newRestaraunts = restaurants
                 .Except(originRestaraunts)
-                .Select(x => x.Restaurants)
                 .ToArray();
-
-          
-
-            deliciousEntities.Restaurants.BulkUpdate(changedRestaraunts);
-            deliciousEntities.Restaurants.AddRange(newRestaraunts);
-            deliciousEntities.SaveChanges();
 
             foreach (var item in newRestaraunts)
             {
                 Places places = new Places()
                 {
-                    PlaceCapacity = 20
+                    PlaceCapacity = item.Capacity
                 };
 
-                item.RestaurantsPlaces = new List<RestaurantsPlaces>()
+                item.Restaurants.RestaurantsPlaces = new List<RestaurantsPlaces>()
                 {
                     new RestaurantsPlaces()
                     {
@@ -135,6 +140,10 @@ namespace Delicious
                     }
                 };
             }
+
+            deliciousEntities.Restaurants.BulkUpdate(changedRestaraunts.Select(x => x.Restaurants));
+            deliciousEntities.Restaurants.AddRange(newRestaraunts.Select(x => x.Restaurants));
+            deliciousEntities.SaveChanges();
 
             DialogResult = true;
         }
