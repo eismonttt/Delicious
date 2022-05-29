@@ -1,6 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Collections.Specialized;
 using System.ComponentModel;
 using System.Linq;
 using System.Windows;
@@ -109,63 +109,83 @@ namespace Delicious
             }
         }
 
-        public DeliciousEntities deliciousEntities;
-        private readonly ObservableCollection<RestourauntsViewModel> restaurants;
-        private readonly List<RestourauntsViewModel> originRestaraunts;
+        private class AdminPageViewModel : INotifyPropertyChanged
+        {
+            public event PropertyChangedEventHandler PropertyChanged;
+
+            private readonly DeliciousEntities deliciousEntities;
+            private readonly ObservableCollection<RestourauntsViewModel> restaurants;
+            private readonly List<RestourauntsViewModel> originRestaraunts;
+
+            public bool CanSaveChanges => !restaurants.Any(x => x.FreePlaces < 0);
+
+            public AdminPageViewModel()
+            {
+                deliciousEntities = new DeliciousEntities();
+                restaurants = new ObservableCollection<RestourauntsViewModel>();
+                originRestaraunts = new List<RestourauntsViewModel>();
+            }
+
+            public IEnumerable GetSource()
+            {
+                deliciousEntities
+                    .Restaurants
+                    .Include(x => x.RestaurantsPlaces)
+                    .ThenInclude(x => x.Places)
+                    .ToArray()
+                    .Select(x => new RestourauntsViewModel(x))
+                    .ToList()
+                    .ForEach(x =>
+                    {
+                        restaurants.Add(x);
+                        originRestaraunts.Add(x);
+                    });
+
+                return restaurants;
+            }
+
+            public void Save()
+            {
+                var changedRestaraunts = restaurants
+               .Intersect(originRestaraunts)
+
+               .ToArray();
+
+                var newRestaraunts = restaurants
+                    .Except(originRestaraunts)
+                    .Select(x => x.Restaurants)
+                    .ToArray();
+
+                var deletedRestoraunts = originRestaraunts
+                    .Except(changedRestaraunts)
+                    .Select(x => x.Restaurants)
+                    .ToArray();
+
+                deliciousEntities.Restaurants.BulkUpdate(changedRestaraunts.Select(x => x.Restaurants));
+                deliciousEntities.Restaurants.AddRange(newRestaraunts);
+                deliciousEntities.Restaurants.RemoveRange(deletedRestoraunts);
+                deliciousEntities.SaveChanges();
+            }
+        }
+
+        private readonly AdminPageViewModel dataContext;
+
         public Page1Admin()
         {
             InitializeComponent();
-            deliciousEntities = new DeliciousEntities();
-            restaurants = new ObservableCollection<RestourauntsViewModel>();
-            restaurants.CollectionChanged += OnCollectionChanged;
-            originRestaraunts = new List<RestourauntsViewModel>();
+            dataContext = new AdminPageViewModel();
+            DataContext = dataContext;
             Loaded += OnLoaded;
-        }
-
-        private void OnCollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
-        {
-            SaveChanges.IsEnabled = !restaurants.Any(x => x.FreePlaces < 0);
         }
 
         private void OnLoaded(object sender, RoutedEventArgs e)
         {
-            deliciousEntities
-                .Restaurants
-                .Include(x => x.RestaurantsPlaces)
-                .ThenInclude(x => x.Places)
-                .ToArray()
-                .Select(x => new RestourauntsViewModel(x))
-                .ToList()
-                .ForEach(x =>
-                {
-                    restaurants.Add(x);
-                    originRestaraunts.Add(x);
-                });
-
-            restGrid.ItemsSource= restaurants;
+            restGrid.ItemsSource = dataContext.GetSource();
         }
 
         private void OnSave(object sender, RoutedEventArgs e)
         {
-            var changedRestaraunts = restaurants
-                .Intersect(originRestaraunts)
-                
-                .ToArray();
-
-            var newRestaraunts = restaurants
-                .Except(originRestaraunts)
-                .Select(x => x.Restaurants)
-                .ToArray();
-
-            var deletedRestoraunts = originRestaraunts
-                .Except(changedRestaraunts)
-                .Select(x => x.Restaurants)
-                .ToArray();
-
-            deliciousEntities.Restaurants.BulkUpdate(changedRestaraunts.Select(x => x.Restaurants));
-            deliciousEntities.Restaurants.AddRange(newRestaraunts);
-            deliciousEntities.Restaurants.RemoveRange(deletedRestoraunts);
-            deliciousEntities.SaveChanges();
+           dataContext.Save();
 
             DialogResult = true;
         }
