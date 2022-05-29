@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Windows.Controls;
 using System.Windows;
+using System.Collections.ObjectModel;
 
 namespace Delicious
 {
@@ -10,7 +11,7 @@ namespace Delicious
     /// </summary>
     public partial class RestaurantsPage : Page
     {
-        public List<RestaurantCard> PageRestaurants { get; set; } = new List<RestaurantCard>();
+        public ObservableCollection<RestaurantCard> PageRestaurants { get; set; } = new ObservableCollection<RestaurantCard>();
         public MainWindow ParentWindow { get; set; }
         public bool IsAdmin => ParentWindow.CurrentUser.IsAdmin;
         public RestaurantsPage(MainWindow w)
@@ -18,7 +19,21 @@ namespace Delicious
             InitializeComponent();
             ParentWindow = w;     // сохраняем главное окно
             ClickToAdm.Visibility = IsAdmin ? Visibility.Visible : Visibility.Hidden;
+            RefreshPageRestaurants();
 
+        }
+        private void ClickToAdm_Click(object sender, RoutedEventArgs e)
+        {
+            Page1Admin adm = new Page1Admin();
+            if (adm.ShowDialog() ?? false)
+            {
+                RefreshPageRestaurants();
+            }
+        }
+
+        private void RefreshPageRestaurants()
+        {
+            PageRestaurants.Clear();
             using (DeliciousEntities context = new DeliciousEntities())  // подключаемся к БД
             {
                 List<Restaurants> restaurants = context.Restaurants.ToList(); // берем все рестораны
@@ -28,11 +43,6 @@ namespace Delicious
                 }
             }
             restaurantsContainer.ItemsSource = PageRestaurants;
-        }
-        private void ClickToAdm_Click(object sender, RoutedEventArgs e)
-        {
-            Page1Admin adm = new Page1Admin();
-            adm.Show();
         }
     }
 }

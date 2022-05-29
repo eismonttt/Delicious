@@ -101,10 +101,12 @@ namespace Delicious
             var changedRestaraunts = restaurants.Select(x => x.Restaurants).ToArray();
             deliciousEntities.BulkUpdate(changedRestaraunts);
             deliciousEntities.SaveChanges();
+            DialogResult = true;
         }
 
         private void OnCancel(object sender, RoutedEventArgs e)
         {
+            DialogResult = false;
             Close();
         }
     }
