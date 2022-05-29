@@ -66,6 +66,8 @@ namespace Delicious
                 }
             }
 
+            public bool IsNew { get; }
+
             public int Capacity
             {
                 get => RestaurantsPlaces.PlaceCount;
@@ -73,6 +75,10 @@ namespace Delicious
                 {
                     RestaurantsPlaces.PlaceCount = value;
                     Places.PlaceCapacity = value;
+                    if (IsNew)
+                    {
+                        RestaurantsPlaces.CurrentPlaceCount = value;
+                    }
 
                     PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Capacity)));
                 }
@@ -91,11 +97,12 @@ namespace Delicious
                 }
                 RestaurantsPlaces = Restaurants.RestaurantsPlaces.First();
                 Places = RestaurantsPlaces.Places;
+                IsNew |= false;
             }
 
             public RestourauntsViewModel() : this(new Restaurants())
             {
-
+                IsNew |= true;
             }
         }
 
