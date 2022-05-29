@@ -80,6 +80,8 @@ namespace Delicious
                     RestaurantsPlaces.CurrentPlaceCount -= placesDiff;
 
                     PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Capacity)));
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(BookPlaces)));
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(FreePlaces)));
                 }
             }
 
