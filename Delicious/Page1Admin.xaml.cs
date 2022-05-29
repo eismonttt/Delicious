@@ -113,9 +113,29 @@ namespace Delicious
                 .Select(x => x.Restaurants)
                 .ToArray();
 
+          
+
             deliciousEntities.Restaurants.BulkUpdate(changedRestaraunts);
             deliciousEntities.Restaurants.AddRange(newRestaraunts);
             deliciousEntities.SaveChanges();
+
+            foreach (var item in newRestaraunts)
+            {
+                Places places = new Places()
+                {
+                    PlaceCapacity = 20
+                };
+
+                item.RestaurantsPlaces = new List<RestaurantsPlaces>()
+                {
+                    new RestaurantsPlaces()
+                    {
+                        RestaurantId = item.Id, 
+                        Places = places
+                    }
+                };
+            }
+
             DialogResult = true;
         }
 
