@@ -10,7 +10,8 @@
 
     <Grid>
         <DataGrid x:Name="restGrid"
-                  AutoGenerateColumns="False">
+                  AutoGenerateColumns="False"
+                  CanUserAddRows="True">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="qwe" Binding="{Binding Name}"/>
                 <DataGridTextColumn Header="qwe" Binding="{Binding Location}"/>
