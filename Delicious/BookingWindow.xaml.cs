@@ -41,7 +41,7 @@ namespace Delicious
             DateTime? selectedDate = calendar.Value;
 
             if (selectedDate != null)
-            {
+            { 
                 // дата на которую забронирован столик в нужном формате (без минут)
                 string bookDateTime = selectedDate.Value.ToString("dd-MM-yyyy HH:00", CultureInfo.CurrentCulture);
 

@@ -283,6 +283,7 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>DeliciousModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
+    <None Include="ClassDiagram1.cd" />
     <None Include="DeliciousModel.edmx.diagram">
       <DependentUpon>DeliciousModel.edmx</DependentUpon>
     </None>

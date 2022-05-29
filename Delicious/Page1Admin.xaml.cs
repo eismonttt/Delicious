@@ -69,10 +69,7 @@ namespace Delicious
                 Restaurants = restaurants;
 
             }
-            public RestourauntsViewModel()
-            {
-                Restaurants = new Restaurants();
-            }
+           
         }
 
 

@@ -1,0 +1,230 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Delicious.App" Collapsed="true">
+    <Position X="2.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>App.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Delicious.BookingWindow" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="6.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAAAAAAAAAAAAAAAgAAAAAAAAAACAAAAEIAAAAAAAA=</HashCode>
+      <FileName>BookingWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Delicious.BookingControl" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="4.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAgBAAAAAAAAACAAAAAAAAAgAAAA=</HashCode>
+      <FileName>Controls\BookingControl.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Delicious.DishCard" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="1" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAhAAAIAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Controls\DishCard.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Delicious.OrderControl" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="8" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAEAAAAAAAAgAAAAAABAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Controls\OrderControl.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Delicious.RestaurantCard" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="6.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAAAAAAAAAAgAAAAAAAAAAACAAAAAAAAAAAAA=</HashCode>
+      <FileName>Controls\RestaurantCard.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Delicious.DeliciousEntities" Collapsed="true">
+    <Position X="9.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAADAAAhAAAAAAAAQAAAAAEAAAAAAAAEAAAAAAAAA=</HashCode>
+      <FileName>DeliciousEntities.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Delicious.Dishes" Collapsed="true">
+    <Position X="2.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAACAAAAARAgAAAAAAAAAAQAACAAABEAAAAAAAAAAAA=</HashCode>
+      <FileName>Dishes.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Delicious.Menus" Collapsed="true">
+    <Position X="6.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACABAAAAAAAAAAAAQAAAAAAEAAAAAAAAAEAAAAAAA=</HashCode>
+      <FileName>Menus.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Delicious.Orders" Collapsed="true">
+    <Position X="9.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACACAAAgAAAAAAAAACAAgAAAAAAAAAAQAAAAAAAAA=</HashCode>
+      <FileName>Orders.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Delicious.Places" Collapsed="true">
+    <Position X="2.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA=</HashCode>
+      <FileName>Places.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Delicious.Restaurants" Collapsed="true">
+    <Position X="9.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAhAAAAAAAAIAAAQAAAAAABAAAAAAEAAAACA=</HashCode>
+      <FileName>Restaurants.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Delicious.RestaurantsPlaces" Collapsed="true">
+    <Position X="2.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAECABAAAAAAAAAAAAAAAAAAAAAIAEAAAEAEAAAABAQ=</HashCode>
+      <FileName>RestaurantsPlaces.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Delicious.Users">
+    <Position X="9.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAECAAAAAAAAAAAAAQAAAAQACAAAAAACAAAAAAAAAAA=</HashCode>
+      <FileName>Users.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Delicious.DishesPage" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="4.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAgAAAAAAAAEAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>DishesPage.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Delicious.DishPage" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="6.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAwAAAAAAAAAIAAAAAAAAACAAAAA=</HashCode>
+      <FileName>DishPage.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Delicious.LoginPage" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="9.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAACAAAAEAAAAQAAAgAAAAAAAAAAACAAAAAAAAE=</HashCode>
+      <FileName>LoginPage.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Delicious.LoginWindow" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="1" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>LoginWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Delicious.LoginWindowPage" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="2.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAACIAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>LoginWindowPage.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Delicious.MainWindow" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="4.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAABAAAIAAAgAAAAAAAAAAAIAAACAAAAAAAAAAAAA=</HashCode>
+      <FileName>MainWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Delicious.Page1Admin" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="1" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAQAACAAAAAQAAAAQAIAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Page1Admin.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Delicious.RestaurantPage" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="8" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAAAAAAAAAAwAAAAQAAIAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>RestaurantPage.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Delicious.RestaurantsPage" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="1" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAgAAAAAACAAAABAAAACQAAAAAAA=</HashCode>
+      <FileName>RestaurantsPage.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Delicious.SignPage" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="6.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAACAAAAEAAAAQAAAgAAAAAAEAAAACAAAAAAAAA=</HashCode>
+      <FileName>SignPage.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Delicious.UserPage" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="8" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAAAAAAAAAAgAAAAEAAAACAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>UserPage.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Delicious.Migrations.init" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="8" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAMAAAAAAAAAAAAAAAAAAAAAAAAAAQEAAAAAI=</HashCode>
+      <FileName>Migrations\202205221030276_init.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Delicious.Migrations.addAdmin" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="1" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAMAAAAAAAAAAAAAAAAAAAAAAAAAAQEAAAAAI=</HashCode>
+      <FileName>Migrations\202205291256106_addAdmin.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Delicious.Migrations.Configuration" Collapsed="true">
+    <Position X="8" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Migrations\Configuration.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Delicious.Properties.Resources" Collapsed="true">
+    <Position X="4.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAABEAAAAQAAAAAAAAAAAAAAAIA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Delicious.Properties.Settings" Collapsed="true">
+    <Position X="4.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAIAAAAAABAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

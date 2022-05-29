@@ -13,11 +13,11 @@
                   AutoGenerateColumns="False"
                   CanUserAddRows="True">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="qwe" Binding="{Binding Name}"/>
-                <DataGridTextColumn Header="qwe" Binding="{Binding Location}"/>
-                <DataGridTextColumn Header="qwe" Binding="{Binding Image}"/>
-                <DataGridTextColumn Header="qwe" Binding="{Binding OpensTime}"/>
-                <DataGridTextColumn Header="qwe" Binding="{Binding ClosesTime}"/>
+                <DataGridTextColumn Header="Название" Binding="{Binding Name}"/>
+                <DataGridTextColumn Header="Расположение" Binding="{Binding Location}"/>
+                <DataGridTextColumn Header="Фото" Binding="{Binding Image}"/>
+                <DataGridTextColumn Header="открытие" Binding="{Binding OpensTime}"/>
+                <DataGridTextColumn Header="Закрытие" Binding="{Binding ClosesTime}"/>
             </DataGrid.Columns>
         </DataGrid>
         <StackPanel Orientation="Horizontal"
