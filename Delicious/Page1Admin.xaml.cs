@@ -87,8 +87,8 @@ namespace Delicious
         {
             var usersFromDB = deliciousEntities
                 .Restaurants
-                .Select(x => new RestourauntsViewModel(x))
-                .ToArray();
+                .ToArray()
+                .Select(x => new RestourauntsViewModel(x));
 
             restaurants = new ObservableCollection<RestourauntsViewModel>(usersFromDB);
             restGrid.ItemsSource= restaurants;
