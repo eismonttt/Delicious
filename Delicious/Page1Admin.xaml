@@ -17,7 +17,7 @@
                 <DataGridTextColumn Header="Расположение" Binding="{Binding Location}"/>
                 <DataGridTextColumn Header="Кол-во мест в ресторане" Binding="{Binding Capacity}"/>
                 <DataGridTextColumn Header="Кол-во забронированных мест мест в ресторане" Binding="{Binding BookPlaces, Mode=OneWay}"/>
-                <DataGridTextColumn Header="Кол-во свободных мест в ресторане" Binding="{Binding FreePlacesPlaces, Mode=OneWay}"/>
+                <DataGridTextColumn Header="Кол-во свободных мест в ресторане" Binding="{Binding FreePlaces, Mode=OneWay}"/>
                 <DataGridTextColumn Header="Фото" Binding="{Binding Image}"/>
                 <DataGridTextColumn Header="открытие" Binding="{Binding OpensTime}"/>
                 <DataGridTextColumn Header="Закрытие" Binding="{Binding ClosesTime}"/>
