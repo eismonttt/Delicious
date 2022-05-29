@@ -7,9 +7,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
 
-    <Button 
-        Click="OpenRestaurant"
-        Style="{DynamicResource CardButton}">
+    <Button Click="OpenRestaurant" Style="{DynamicResource CardButton}">
 
         <Border CornerRadius="20">
             <Grid>
@@ -19,42 +17,25 @@
                 </Grid.RowDefinitions>
 
                 <Border>
-                    <Image Stretch="UniformToFill" Name="image"/> <!--свойство заполняющее все пространство Image-->
+                    <Image Stretch="UniformToFill" Name="image"/>
+                    <!--свойство заполняющее все пространство Image-->
                 </Border>
 
                 <Border Padding="20 10 20 20" Grid.Row="1">
                     <DockPanel LastChildFill="False">
-                        <TextBlock
-                            Style="{DynamicResource TitleCardText}"
-                            DockPanel.Dock="Top"
-                            Name="title"/>
+                        <!--док панел хранит содержимое контейнера-->
+                        <TextBlock Style="{DynamicResource TitleCardText}" DockPanel.Dock="Top" Name="title"/>
+                        <TextBlock Style="{DynamicResource CardDescrText}" DockPanel.Dock="Top" TextAlignment="Left" FontSize="20" Name="location"/>
 
-                        <TextBlock 
-                            Style="{DynamicResource CardDescrText}"
-                            DockPanel.Dock="Top"
-                            TextAlignment="Center"
-                            FontSize="20"
-                            Name="location"/>
+                        <DockPanel LastChildFill="False" DockPanel.Dock="Bottom">
+                            <TextBlock DockPanel.Dock="Left" Text="Время работы:" Foreground="#16161A" FontSize="16" FontWeight="Medium"/>
+                            
+                            <StackPanel DockPanel.Dock="Right" Orientation="Horizontal">
+                                <TextBlock Name="opensTime" Foreground="#16161A" FontSize="16" FontWeight="Medium"/>
 
-                        <DockPanel
-                            LastChildFill="False"
-                            DockPanel.Dock="Bottom">
-                            <TextBlock 
-                                DockPanel.Dock="Left"
-                                Text="Время работы"
-                                VerticalAlignment="Bottom"/>
-                            <StackPanel
-                                DockPanel.Dock="Right"
-                                Orientation="Horizontal">
-                                <TextBlock 
-                                    FontSize="16"
-                                    Name="opensTime"/>
-                                <TextBlock 
-                                    FontSize="16"
-                                    Text=" – "/>
-                                <TextBlock 
-                                    FontSize="16"
-                                    Name="closesTime"/>
+                                <TextBlock FontSize="16" Text=" – " Foreground="#16161A" FontWeight="Medium"/>
+                                <TextBlock FontSize="16" Name="closesTime" Foreground="#16161A" FontWeight="Medium"/>
+                                
                             </StackPanel>
                         </DockPanel>
                     </DockPanel>

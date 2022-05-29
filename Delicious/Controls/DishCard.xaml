@@ -7,12 +7,9 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
 
-    <Button 
-        Click="OpenDishPage"
-        Style="{DynamicResource CardButton}">
+    <Button Click="OpenDishPage" Style="{DynamicResource CardButton}">
         
-        <Border
-            CornerRadius="20">
+        <Border CornerRadius="20">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"/>
@@ -20,15 +17,10 @@
                 </Grid.RowDefinitions>
 
                 <Border>
-                    <Image
-                        Stretch="UniformToFill"
-                        Name="image"/>
+                    <Image Stretch="UniformToFill" Name="image"/>
                 </Border>
 
-                <Border
-                    Padding="20 10 20 20"
-                    Grid.Row="1">
-
+                <Border Padding="20 10 20 20" Grid.Row="1">
                     <Grid>
                         <Grid.RowDefinitions>
                             <RowDefinition Height="*"/>
@@ -36,46 +28,19 @@
                         </Grid.RowDefinitions>
 
                         <StackPanel>
-                            <TextBlock 
-                                Name="title" 
-                                Style="{DynamicResource TitleCardText}"/>
-
-                            <TextBlock 
-                                Name="descr" 
-                                Style="{DynamicResource CardDescrText}"/>
+                            <TextBlock Name="title" Style="{DynamicResource TitleCardText}"/>
+                            <TextBlock Name="descr" Style="{DynamicResource CardDescrText}"/>
                         </StackPanel>
 
-                        <DockPanel 
-                            VerticalAlignment="Center"
-                            Grid.Row="1" LastChildFill="False">
-                            <StackPanel 
-                                Orientation="Horizontal"
-                                DockPanel.Dock="Left">
-                                <TextBlock
-                                    Text=""
-                                    FontSize="18"
-                                    FontWeight="Bold"
-                                    Name="weight"/>
-                                <TextBlock 
-                                    VerticalAlignment="Bottom"
-                                    FontSize="15"
-                                    Text=" гр."/>
+                        <DockPanel VerticalAlignment="Center" Grid.Row="1" LastChildFill="False">
+                            <StackPanel Orientation="Horizontal" DockPanel.Dock="Left">
+                                <TextBlock Text="" FontSize="18" FontWeight="Bold" Name="weight" Foreground="#16161A"/>
+                                <TextBlock VerticalAlignment="Bottom" FontSize="16" Text=" гр." Foreground="#16161A"/>
                             </StackPanel>
 
-                            <StackPanel 
-                                DockPanel.Dock="Right"
-                                Orientation="Horizontal">
-                                <TextBlock
-                                    FontSize="18"
-                                    FontWeight="Bold"
-                                    HorizontalAlignment="Right"
-                                    Name="rating"/>
-                                <Image 
-                                    Margin="4 0 0 0"
-                                    Width="16"
-                                    Stretch="Uniform"
-                                    HorizontalAlignment="Right"
-                                    Source="../Images/star.png"/>
+                            <StackPanel DockPanel.Dock="Right" Orientation="Horizontal">
+                                <TextBlock FontSize="18" FontWeight="Bold" HorizontalAlignment="Right" Name="rating" Foreground="#16161A"/>
+                                <Image Margin="4 0 0 0" Width="16" Stretch="Uniform" HorizontalAlignment="Right" Source="../Images/star.png"/>
                             </StackPanel>
                         </DockPanel>
                     </Grid>

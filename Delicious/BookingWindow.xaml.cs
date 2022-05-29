@@ -68,7 +68,9 @@ namespace Delicious
                 using (DeliciousEntities context = new DeliciousEntities())
                 {
                     // формируем новый список мест конкретно этого ресторана
-                    List<RestaurantsPlaces> restPlaces = context.RestaurantsPlaces.Where(places => places.RestaurantId == RestaurantPage.Restaurant.Id).ToList();
+                    List<RestaurantsPlaces> restPlaces = context.RestaurantsPlaces
+                        .Include("Places")
+                        .Where(places => places.RestaurantId == RestaurantPage.Restaurant.Id).ToList();
 
                     // заполняем список брони элементами управления
                     foreach (RestaurantsPlaces place in restPlaces)

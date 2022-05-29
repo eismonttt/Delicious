@@ -5,62 +5,28 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Delicious"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="93.443" d:DesignWidth="800">
 
-    <Border 
-        Margin="10"
-        Padding="30 15"
-        Background="{DynamicResource LightGreen}"
-        CornerRadius="30"
-        VerticalAlignment="Center">
+    <Border Margin="10" Padding="30 15" Background="#c1bbdd" CornerRadius="30" VerticalAlignment="Center">
 
         <DockPanel>
-
-            <StackPanel 
-                VerticalAlignment="Center"
-                DockPanel.Dock="Left"
-                Orientation="Horizontal">
-                <TextBlock 
-                    Text="Мест на столик: " 
-                    Style="{DynamicResource BookingControlText}"/>
-                <TextBlock 
-                    Style="{DynamicResource BookingControlText}"
-                    Name="places"/>
+            <StackPanel VerticalAlignment="Center"  DockPanel.Dock="Left" Orientation="Horizontal">
+                <TextBlock Text="Мест на столик: " Style="{DynamicResource BookingControlText}"/>
+                <TextBlock Style="{DynamicResource BookingControlText}" Name="places"/>
             </StackPanel>
 
-            <StackPanel
-                VerticalAlignment="Center"
-                Margin="10 0"
-                DockPanel.Dock="Left"
-                Orientation="Horizontal">
-                <TextBlock 
-                    Style="{DynamicResource BookingControlText}"
-                    Text="Дата: "/>
-                <TextBlock 
-                    Style="{DynamicResource BookingControlText}"
-                    Name="orderDate"/>
+            <StackPanel VerticalAlignment="Center" Margin="10 0" DockPanel.Dock="Left" Orientation="Horizontal">
+                <TextBlock Style="{DynamicResource BookingControlText}" Text="Дата: "/>
+                <TextBlock Style="{DynamicResource BookingControlText}" Name="orderDate"/>
             </StackPanel>
 
-            <StackPanel
-                VerticalAlignment="Center"
-                DockPanel.Dock="Left"
-                Orientation="Horizontal">
-                <TextBlock 
-                    Style="{DynamicResource BookingControlText}"
-                    Text="Ресторан: "/>
-                <TextBlock 
-                    Style="{DynamicResource BookingControlText}"
-                    Name="restaurant"/>
+            <StackPanel VerticalAlignment="Center" DockPanel.Dock="Left" Orientation="Horizontal">
+                <TextBlock Style="{DynamicResource BookingControlText}" Text="Ресторан: "/>
+                <TextBlock Style="{DynamicResource BookingControlText}" Name="restaurant"/>
             </StackPanel>
 
-            <Button
-                Name="cancelBookButton"
-                Click="CancelBook"
-                DockPanel.Dock="Right"
-                HorizontalAlignment="Right"
-                Content="Отменить" 
-                Style="{DynamicResource LongControlButton}"/>
-
+            <Button Name="cancelBookButton" Click="CancelBook" DockPanel.Dock="Right" HorizontalAlignment="Right"
+                Content="Отменить" Style="{DynamicResource LongControlButton}"/>
         </DockPanel>
     </Border>
 

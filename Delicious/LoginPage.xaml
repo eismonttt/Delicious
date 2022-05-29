@@ -5,29 +5,30 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Delicious"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800" Title="LoginPage" Background="White">
+      d:DesignHeight="450" d:DesignWidth="400" Title="LoginPage" Background="#FF181529">
 
     <StackPanel 
         VerticalAlignment="Center"
         HorizontalAlignment="Center">
 
         <StackPanel>
-            <TextBlock Style="{DynamicResource LoginWindowText}" Text="Имя пользователя"/>
+            <TextBlock Style="{DynamicResource LoginWindowText}" Text="Имя пользователя" Width="194"/>
             <TextBox Style="{DynamicResource LoginTextBox}" Name="username"/>
         </StackPanel>
 
-        <StackPanel Margin="0 20 0 20">
-            <TextBlock Style="{DynamicResource LoginWindowText}" Text="Пароль"/>
+        <StackPanel Margin="0 20 0 20" Height="67">
+            <TextBlock Style="{DynamicResource LoginWindowText}" Text="Придумайте пароль" Width="195"/>
             <PasswordBox Style="{DynamicResource PasswordBoxStyle}" Name="password" />
         </StackPanel>
-        
-        <StackPanel>
-            <TextBlock Style="{DynamicResource LoginWindowText}" Text="Ваше имя"/>
+
+        <StackPanel Height="107">
+            <TextBlock Text="*Укажите имя, для входа в Кабинет" Foreground="#72757E" HorizontalAlignment="Center" FontSize="15" FontFamily="Candara" FontWeight="ExtraLight"/>
+            <TextBlock Style="{DynamicResource LoginWindowText}" Text="Ваше имя" Width="194"/>
             <TextBox Style="{DynamicResource LoginTextBox}" Name="userRealName"/>
         </StackPanel>
 
-        <Button Margin="0 20 0 20" Style="{DynamicResource LongControlButton}" Click="LoginUser" Content="Готово"/>
-        <Button Style="{DynamicResource LongControlButton}" Click="BackPage" Content="Назад"/>
+        <Button Margin="0 20 0 20" Style="{DynamicResource LongControlButton}" Click="LoginUser" Content="Готово" Width="260"/>
+        <Button Style="{DynamicResource LongControlButton}" Click="BackPage" Content="Назад" Width="260"/>
 
     </StackPanel>
 </Page>

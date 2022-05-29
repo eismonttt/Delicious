@@ -16,9 +16,10 @@ namespace Delicious
     {
         public int Id { get; set; }
         public int RestaurantId { get; set; }
+
         public int DishId { get; set; }
     
-        public virtual Dishes Dishes { get; set; }
-        public virtual Restaurants Restaurants { get; set; }
+        public  Dishes Dishes { get; set; }
+        public  Restaurants Restaurants { get; set; }
     }
 }

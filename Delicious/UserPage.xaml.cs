@@ -1,17 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+using Z.EntityFramework.Extensions;
 
 namespace Delicious
 {
@@ -34,7 +25,16 @@ namespace Delicious
 
             using (DeliciousEntities context = new DeliciousEntities())
             {
-                List<Orders> orders = context.Orders.Where(order => order.UserId == User.Id).ToList();
+                List<Orders> orders = context.Orders
+                    .AsDbQuery()
+                    .Include(x=>x.RestaurantsPlaces)
+                    .AlsoInclude(x=>x.Places)
+                    .AlsoInclude(x=>x.Restaurants)
+                    .Include(nameof(Orders.Users))
+
+                    .Where(order => order.UserId == User.Id)
+                    
+                    .ToList();
                 foreach (Orders order in orders)
                 {
                     UserOrders.Add(new OrderControl(order, ParentWindow, this));

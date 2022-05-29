@@ -5,15 +5,14 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Delicious"
       mc:Ignorable="d" 
-      d:DesignHeight="600" d:DesignWidth="800" Title="DishesPage" Background="White">
+      d:DesignHeight="600" d:DesignWidth="800" Title="DishesPage" Background="#FF181529">
     
     <ScrollViewer Grid.Row="1" Name="mainScrollViewer">
 
         <Border Padding="0 60 0 0">
             <StackPanel>
-                <TextBlock 
-                    Text="Попробуйте блюда лучших Ресторанов Минска" 
-                    Style="{DynamicResource PageTitleText}"/>
+                <TextBlock Text="Попробуйте блюда лучших Ресторанов Минска" Style="{DynamicResource PageTitleText}"/>
+                <TextBlock Text="Популярные блюда, которые могут вас заинтересовать" Foreground="#72757E" HorizontalAlignment="Center" FontSize="20" FontFamily="Candara" FontWeight="Light"/>
 
                 <ItemsControl Margin="60 40" Grid.Row="1" Name="dishesContainer">
                     <ItemsControl.ItemsPanel>

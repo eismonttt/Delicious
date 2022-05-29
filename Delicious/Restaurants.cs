@@ -29,8 +29,8 @@ namespace Delicious
         public Nullable<int> ClosesTime { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Menus> Menus { get; set; }
+        public  ICollection<Menus> Menus { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<RestaurantsPlaces> RestaurantsPlaces { get; set; }
+        public  ICollection<RestaurantsPlaces> RestaurantsPlaces { get; set; }
     }
 }

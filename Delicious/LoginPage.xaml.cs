@@ -21,13 +21,12 @@ namespace Delicious
         public LoginPage(LoginWindow w)
         {
             InitializeComponent();
-
             LoginWindow = w;
         }
 
         private void LoginUser(object sender, RoutedEventArgs e)
         {
-            string _username = username.Text;   // создаем переменные и закидываем значение , введенное с поля
+            string _username = username.Text;   // создаем переменные и закидываем значение, введенное с поля
             string _password = password.Password;
             string _userRealName = userRealName.Text;
             
@@ -57,7 +56,6 @@ namespace Delicious
             // если все введено правильно
             if (usernameMatch && passwordMatch && userRealNameMatch)
             {
-
                 List<Users> alreadyUsers = new List<Users>();
 
                 // создаем обращение к бд
@@ -75,7 +73,6 @@ namespace Delicious
                 // если пользователя нет в бд, то регистрируем его 
                 else
                 {
-                    
                     Users newUser = new Users()
                     {
                         Username = _username,
@@ -87,7 +84,7 @@ namespace Delicious
                         
                     {
                         context.Users.Add(newUser);
-                        context.SaveChanges();
+                        context.SaveChanges(); /*сохранить изменения*/
                     }
                     
                     MainWindow mainWindow = new MainWindow(newUser);

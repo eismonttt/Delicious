@@ -19,7 +19,7 @@ namespace Delicious
         public int RestaurantPlaceId { get; set; }
         public string BookDate { get; set; }
     
-        public virtual RestaurantsPlaces RestaurantsPlaces { get; set; }
-        public virtual Users Users { get; set; }
+        public  RestaurantsPlaces RestaurantsPlaces { get; set; }
+        public  Users Users { get; set; }
     }
 }

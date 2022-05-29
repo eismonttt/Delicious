@@ -44,7 +44,10 @@ namespace Delicious
 
             using (DeliciousEntities context = new DeliciousEntities())
             {
-                List<Restaurants> dishRestaurants = context.Menus.Where(menu => menu.DishId == Dish.Id).Select(menu => menu.Restaurants).ToList();
+                List<Restaurants> dishRestaurants = context.Menus.Where(menu => menu.DishId == Dish.Id)
+                    .AsDbQuery()
+                    .Include(x=>x.Restaurants)
+                    .Select(menu => menu.Restaurants).ToList();
 
                 foreach (Restaurants rest in dishRestaurants)
                 {

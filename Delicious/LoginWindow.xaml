@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Delicious"
         mc:Ignorable="d"
-        Title="LoginWindow" Height="500" Width="400" MaxHeight="550" MaxWidth="500" MinHeight="500" MinWidth="400">
+        Title="LoginWindow" Height="500" Width="400" MaxHeight="550" MaxWidth="500" MinHeight="500" MinWidth="400" Background="#FF181529" Icon="iconsLOG.png">
 
     <Frame NavigationUIVisibility="Hidden" Name="loginFrame"/>
 </Window>

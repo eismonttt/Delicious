@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Delicious"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800" Title="СтраничкаРесторана">
+      d:DesignHeight="450" d:DesignWidth="800" Title="СтраничкаРесторана" Background="#FF181529">
     
     <ScrollViewer>
         <Grid>
@@ -20,7 +20,7 @@
                         Stretch="UniformToFill"
                         x:Name="dishPageHeader"/>
                 </Border.Background>
-                <Grid Background="#88FFFFFF">
+                <Grid Background="Black" Opacity="0.85">
                     <Button Click="BackPage" HorizontalAlignment="Left" VerticalAlignment="Top" Style="{DynamicResource BackButton}">
                         <Image Stretch="Uniform" Source="Images/back-arrow.png"/>
                     </Button>
@@ -28,13 +28,13 @@
                 </Grid>
             </Border>
 
-            <Border Padding="20 30" Grid.Row="1" Background="White">
+            <Border Padding="20 30" Grid.Row="1" >
 
                 <StackPanel>
                     <TextBlock
                         Style="{DynamicResource PageTitleText}"
-                        Text="Подробнее"/>
-                    <Grid Margin="0 20 0 0" HorizontalAlignment="Center" Width="400">
+                        Text="Подробнее о меню:"/>
+                    <Grid Margin="0 20 0 0" HorizontalAlignment="Left" Width="400">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="3*"/>
                             <ColumnDefinition Width="10"/>
@@ -66,21 +66,21 @@
 
                         <StackPanel Orientation="Horizontal" Grid.Row="2" Grid.Column="2">
                             <TextBlock Style="{DynamicResource PageDescrText}" Name="price"/>
-                            <TextBlock VerticalAlignment="Center" Text=" руб."/>
+                            <TextBlock VerticalAlignment="Center" Text=" руб." Foreground="#c1bbdd"/>
                         </StackPanel>
 
                         <TextBlock TextAlignment="Left" Style="{DynamicResource PageDescrText}" Grid.Row="3" Text="Вес:"/>
 
                         <StackPanel Orientation="Horizontal" Grid.Row="3" Grid.Column="2">
                             <TextBlock Style="{DynamicResource PageDescrText}" Name="weight"/>
-                            <TextBlock VerticalAlignment="Center" Text=" гр."/>
+                            <TextBlock VerticalAlignment="Center" Text=" гр." Foreground="#c1bbdd"/>
                         </StackPanel>
 
-                        <TextBlock TextAlignment="Center" Style="{DynamicResource PageDescrText}" Grid.Row="4" Text="Калории:"/>
+                        <TextBlock TextAlignment="Left" Style="{DynamicResource PageDescrText}" Grid.Row="4" Text="Калории:"/>
 
                         <StackPanel Orientation="Horizontal" Grid.Row="4" Grid.Column="2">
                             <TextBlock Style="{DynamicResource PageDescrText}" Name="calories"/>
-                            <TextBlock VerticalAlignment="Center" Text=" ккал."/>
+                            <TextBlock VerticalAlignment="Center" Text=" ккал." Foreground="#c1bbdd"/>
                         </StackPanel>
                     </Grid>
 

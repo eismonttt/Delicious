@@ -68,7 +68,10 @@ namespace Delicious
             using (DeliciousEntities context = new DeliciousEntities())
             {
                 // выбираем все блюда, которые есть в меню этого ресторана
-                List<Dishes> restDishes = context.Menus.Where(menu => menu.RestaurantId == Restaurant.Id).Select(menu => menu.Dishes).ToList();
+                var restDS = context.Menus
+
+                     .Include("Dishes");
+                var restDishes = restDS.Where(menu => menu.RestaurantId == Restaurant.Id).Select(menu => menu.Dishes).ToList();
 
                 foreach (Dishes dish in restDishes)
                 {
@@ -79,7 +82,11 @@ namespace Delicious
 
             using (DeliciousEntities context = new DeliciousEntities())
             {
-                List<RestaurantsPlaces> restPlaces = context.RestaurantsPlaces.Where(places => places.RestaurantId == Restaurant.Id).ToList();
+                List<RestaurantsPlaces> restPL = context.RestaurantsPlaces
+                    .Include(nameof(RestaurantsPlaces.Places))
+                    .ToList();
+
+                var restPlaces = restPL.Where(places => places.RestaurantId == Restaurant.Id).ToList();
 
                 foreach (RestaurantsPlaces place in restPlaces)
                 {

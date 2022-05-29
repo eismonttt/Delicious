@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Delicious"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800" Title="UserPage">
+      d:DesignHeight="450" d:DesignWidth="800" Title="UserPage" Background="#FF181529">
 
     <ScrollViewer>
         <Grid>
@@ -16,10 +16,7 @@
             </Grid.RowDefinitions>
 
             <Border>
-                <Border.Background>
-                    <ImageBrush Stretch="UniformToFill" ImageSource="Images/userbg.jpg"/>
-                </Border.Background>
-                <Grid Background="#66ffFFff">
+                <Grid Background="#383258">
                     <TextBlock Style="{DynamicResource HeaderTitleText}" Name="userRealName"/>
                 </Grid>
             </Border>
@@ -27,6 +24,8 @@
             <Border Margin="60 40" Grid.Row="1">
                 <StackPanel>
                     <TextBlock Style="{DynamicResource PageTitleText}" Text="Актуальные заказы"/>
+                    <TextBlock Text="Актуальный список брони на данный момент" Foreground="#72757E" HorizontalAlignment="Center" FontSize="20" FontFamily="Candara" FontWeight="Light"/>
+
                     <ItemsControl Margin="0 20 0 0" Name="ordersContainer"/>
                 </StackPanel>
             </Border>

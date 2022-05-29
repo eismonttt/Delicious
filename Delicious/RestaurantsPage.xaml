@@ -5,19 +5,21 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Delicious"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800" Title="Restaurants" Background="White">
+      d:DesignHeight="450" d:DesignWidth="800" Title="Restaurants" Background="#FF181529">
 
-    <ScrollViewer 
-            Grid.Row="1"
-            Name="mainScrollViewer">
+   
+    <ScrollViewer Grid.Row="1" Name="mainScrollViewer">
 
         <Border Padding="0 60 0 0">
-            <StackPanel>
-                <TextBlock
-                    Text="РЕСТОРАНЫ МИНСКА"
-                    Style="{DynamicResource PageTitleText}"/>
 
-                <ItemsControl Margin="60 40" Grid.Row="1" Name="restaurantsContainer">
+           
+            <StackPanel>
+                <TextBlock Text="РЕСТОРАНЫ МИНСКА" Style="{DynamicResource PageTitleText}"/>
+                <TextBlock Text="Выбирайте лучшие места для досуга в столице" Foreground="#72757E" HorizontalAlignment="Center" FontSize="20" FontFamily="Candara" FontWeight="Light"/>
+                   
+                <Button x:Name="ClickToAdm" Click="ClickToAdm_Click" Width="100" Height="30" Content="редактировать" />
+                
+                <ItemsControl Margin="60 40" Grid.Row="1" Name="restaurantsContainer"> <!--вертикаьное расположение за счет страк панел-->
                     <ItemsControl.ItemsPanel>
                         <ItemsPanelTemplate>
                             <WrapPanel ItemWidth="300" ItemHeight="400"/>
@@ -27,5 +29,6 @@
                 
             </StackPanel>
         </Border>
+
     </ScrollViewer>
 </Page>

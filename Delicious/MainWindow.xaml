@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Delicious"
         mc:Ignorable="d"
-        Title="MainWindow" Height="800" Width="1054" MinWidth="1054" MinHeight="800">
+        Title="MainWindow" Height="800" Width="1054" MinWidth="1054" MinHeight="800" ResizeMode="NoResize"  Icon="iconINTR.png">
     
     <Grid>
         <Grid.RowDefinitions>
@@ -13,8 +13,10 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
 
-        <Border 
-            Style="{DynamicResource MainWindowHeaderStyle}" Background="{DynamicResource LightGray}">
+        <Border Style="{DynamicResource MainWindowHeaderStyle}">
+            <Border.Background>
+                <ImageBrush ImageSource="pageebg.jpg" Stretch="UniformToFill"/>
+            </Border.Background>
 
             <Grid VerticalAlignment="Center">
                 <Grid.ColumnDefinitions>
@@ -23,13 +25,12 @@
                     <ColumnDefinition Width="Auto"/>
                 </Grid.ColumnDefinitions>
 
-                <Border 
-                    Width="50">
-                    <Image Source="Images/logo.png"/>
+                <Border Grid.ColumnSpan="2" Margin="344,0,231.4,3.8">
+                    <Image Source="Images/logorest.png" Margin="0,4,0,-4.4"/>
                 </Border>
 
                 <StackPanel
-                    HorizontalAlignment="Center"
+                    HorizontalAlignment="Left"
                     Grid.Column="1"
                     Orientation="Horizontal">
 
@@ -42,24 +43,13 @@
                         Content="МЕНЮ"
                         Click="OpenDishes"
                         Style="{StaticResource ButtonHeader}"/>
-
                 </StackPanel>
 
-                <Button
-                    Cursor="Hand"
-                    Content="Личный кабинет"
-                    Click="OpenUserPage"
-                    x:Name="userButton"
-                    Grid.Column="2" 
-                    Style="{DynamicResource UserButtonControl}">
+                <Button Cursor="Hand" Content="Личный кабинет" Click="OpenUserPage" x:Name="userButton" Grid.Column="2" Style="{DynamicResource UserButtonControl}">
                 </Button>
             </Grid>
         </Border>
 
-        <Frame 
-            x:Name="frame"
-            Grid.Row="1"
-            Source="RestaurantsPage.xaml"
-            NavigationUIVisibility="Hidden"/>
+        <Frame x:Name="frame" Grid.Row="1" Source="RestaurantsPage.xaml" NavigationUIVisibility="Hidden"/>
     </Grid>
 </Window>

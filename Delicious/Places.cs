@@ -24,6 +24,6 @@ namespace Delicious
         public int PlaceCapacity { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<RestaurantsPlaces> RestaurantsPlaces { get; set; }
+        public  ICollection<RestaurantsPlaces> RestaurantsPlaces { get; set; }
     }
 }

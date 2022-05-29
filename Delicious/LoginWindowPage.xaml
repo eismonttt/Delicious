@@ -5,18 +5,22 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Delicious"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="400" Title="LoginWindowPage">
+      d:DesignHeight="450" d:DesignWidth="400" Title="LoginWindowFirst" Background="#FF181529">
 
-    <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
-
+    <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Height="375" Margin="34,65,33,9.6" Width="333">
         <StackPanel>
-            <TextBlock Style="{DynamicResource LoginWindowText}" Text="Добро пожаловать" Margin="32 0 0 10"/>
-            <Button Style="{DynamicResource LongControlButton}" Click="OpenLoginPage" Content="Зарегистрироваться"/>
+            <TextBlock Text="Добро пожаловать!" Foreground="#72757E" HorizontalAlignment="Center" FontSize="30" FontFamily="Candara" FontWeight="Light" Margin="40,0,38.8,0" Height="37"/>
+            <TextBlock Text="Подберите лучшее место для отдыха" Foreground="#72757E" HorizontalAlignment="Center" FontSize="19" FontFamily="Candara" FontWeight="Light" Margin="10,0,9.8,0" Height="51" Width="313"/>
         </StackPanel>
 
-        <StackPanel Margin="0 60 0 0">
-            <TextBlock Text="Уже есть Личный кабинет" Margin="0 0 0 10" Style="{DynamicResource LoginWindowText}"/>
-            <Button Style="{DynamicResource LongControlButton}" Click="OpenSignPage" Content="Войти"/>
+        <StackPanel>
+            <TextBlock Style="{DynamicResource LoginWindowText}" Text="Впервые здесь?" Margin="10,0,0,10" Width="153" HorizontalAlignment="Left" />
+            <Button Style="{DynamicResource LongControlButton}" Click="OpenLoginPage" Content="Зарегистрироваться" Margin="10,0,9.8,0"/>
+        </StackPanel>
+
+        <StackPanel Margin="0,60,-0.2,0">
+            <TextBlock Text="Уже есть Личный кабинет" Margin="10,0,-0.2,10" Style="{DynamicResource LoginWindowText}"/>
+            <Button Style="{DynamicResource LongControlButton}" Click="OpenSignPage" Content="Войти" Margin="10,0,9.8,0"/>
         </StackPanel>
 
     </StackPanel>

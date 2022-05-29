@@ -30,6 +30,6 @@ namespace Delicious
         public string Image { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Menus> Menus { get; set; }
+        public  ICollection<Menus> Menus { get; set; }
     }
 }

@@ -28,8 +28,8 @@ namespace Delicious
         public float PlacePrice { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Orders> Orders { get; set; }
-        public virtual Places Places { get; set; }
-        public virtual Restaurants Restaurants { get; set; }
+        public  ICollection<Orders> Orders { get; set; }
+        public  Places Places { get; set; }
+        public  Restaurants Restaurants { get; set; }
     }
 }

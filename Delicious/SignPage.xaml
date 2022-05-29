@@ -5,8 +5,8 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Delicious"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
-      Title="SignPage">
+      d:DesignHeight="450" d:DesignWidth="400"
+      Title="SignPage" Background="#FF181529">
 
     <StackPanel 
         VerticalAlignment="Center"
@@ -15,16 +15,16 @@
         <StackPanel>
             <TextBlock 
                 Style="{DynamicResource LoginWindowText}"
-                Text="Имя пользователя"/>
+                Text="Имя пользователя" Width="197"/>
             <TextBox
                 Style="{DynamicResource LoginTextBox}"
                 Name="username"/>
         </StackPanel>
 
-        <StackPanel Margin="0 20 0 0">
+        <StackPanel Margin="0 20 0 0" Height="104">
             <TextBlock 
                 Style="{DynamicResource LoginWindowText}"
-                Text="Пароль"/>
+                Text="Пароль" Width="197"/>
             <PasswordBox
                 Style="{DynamicResource PasswordBoxStyle}"
                 Name="password"/>
@@ -33,13 +33,13 @@
         <Button Margin="0 20 0 20"
             Style="{DynamicResource LongControlButton}"
             Click="SignUser"
-            Content="Войти"
+            Content="Войти" Width="254"
             />
 
         <Button
             Style="{DynamicResource LongControlButton}"
             Click="BackPage"
-            Content="Назад"
+            Content="Назад" Width="254"
             />
 
     </StackPanel>

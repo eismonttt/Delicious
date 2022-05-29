@@ -24,8 +24,11 @@ namespace Delicious
         public string Username { get; set; }
         public string Password { get; set; }
         public string Name { get; set; }
-    
+
+        public bool IsAdmin { get; set; }
+
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Orders> Orders { get; set; }
+        public  ICollection<Orders> Orders { get; set; }
     }
 }

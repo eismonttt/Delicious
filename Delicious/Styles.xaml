@@ -2,26 +2,25 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:local="clr-namespace:Delicious" xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit" xmlns:Themes="clr-namespace:Xceed.Wpf.Toolkit.Themes;assembly=Xceed.Wpf.Toolkit">
     <SolidColorBrush x:Key="AccentGreen" Color="{DynamicResource AccentTextColor}"/>
-    <SolidColorBrush x:Key="WhiteColor" Color="{DynamicResource White}"/>
+    <SolidColorBrush x:Key="LiteFiolColor" Color="{DynamicResource White}"/>
+
     <Thickness x:Key="Thickness1">40,10</Thickness>
     <CornerRadius x:Key="CornerRadius1">0,0,20,20</CornerRadius>
     
     <Style x:Key="MainWindowHeaderStyle" TargetType="{x:Type Border}">
         <Setter Property="Padding" Value="{DynamicResource Thickness1}"/>
     </Style>
-    
-    <Color x:Key="White">#FFEEEEEE</Color>
-    <Color x:Key="AccentTextColor">#696969</Color>
-    <FontFamily x:Key="FontFamily1">Futura Bk BT</FontFamily>
 
-    <Style TargetType="{x:Type ToggleButton}" x:Key="ButtonHeader">
+    <Color x:Key="White">#38315a</Color>
+    <Color x:Key="AccentTextColor">#ebbf92</Color>
+    <FontFamily x:Key="FontFamily1">Candara</FontFamily>
+
+    <Style TargetType="{x:Type ToggleButton}" x:Key="ButtonHeader">   <!--main window strack panel-->
         <Setter Property="Cursor" Value="Hand"/>
-        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="Background" Value="Transparent"/> 
         <Setter Property="Template">
             <Setter.Value>
-
                 <ControlTemplate TargetType="{x:Type ToggleButton}">
-
                     <Grid>
                         <Grid.RowDefinitions>
                             <RowDefinition Height="*"/>
@@ -30,12 +29,12 @@
 
                         <Border Background="{TemplateBinding Background}">
                             <TextBlock 
-                                Margin="30 10 30 0"
-                                TextAlignment="Center" HorizontalAlignment="Stretch" 
+                                Margin="10 0 10 0"
+                                TextAlignment="Left" HorizontalAlignment="Stretch" 
                                 VerticalAlignment="Center" FontFamily="{DynamicResource FontFamily1}" 
-                                FontSize="20" FontWeight="Bold">
+                                FontSize="15" FontWeight="Regular">
                                 <TextBlock.Foreground>
-                                    <SolidColorBrush Color="{DynamicResource AccentTextColor}"/>
+                                    <SolidColorBrush Color="White"/>
                                 </TextBlock.Foreground><InlineUIContainer>
                                 
                                     <ContentPresenter/>
@@ -62,22 +61,20 @@
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
-
             </Setter.Value>
         </Setter>
-
     </Style>
     <SolidColorBrush x:Key="LightGray" Color="#D3D3D3"/>
 
-    <Style x:Key="UserButtonControl" TargetType="{x:Type Button}">
+    <Style x:Key="UserButtonControl" TargetType="{x:Type Button}"> <!--личный каб кнопка-->
         <Setter Property="Background" Value="Transparent"/>
         <Setter Property="Foreground" Value="{DynamicResource ForegroundMain}"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type Button}">
-                    <Border Background="{TemplateBinding Background}" CornerRadius="25" BorderThickness="2" Padding="10 2 10 0">
+                    <Border Background="{TemplateBinding Background}" CornerRadius="22" BorderThickness="3" Padding="10 0 10 0">
                         <Border.BorderBrush>
-                            <SolidColorBrush Color="{DynamicResource AccentTextColor}"/>
+                            <SolidColorBrush Color="White"/>
                         </Border.BorderBrush>
                         <TextBlock TextWrapping="Wrap" 
                                    Foreground="{TemplateBinding Foreground}"
@@ -90,14 +87,15 @@
                     </Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Background" Value="{DynamicResource AccentGreen}"/>
-                            <Setter Property="Foreground" Value="{DynamicResource WhiteColor}"/>
+                            <Setter Property="Background" Value="#FF181529"/>
+                            <Setter Property="Foreground" Value="White"/>
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
     </Style>
+    
     <Color x:Key="WhiteOpacityBackground">#88FFFFFF</Color> <!--страница определенного рестика-->
     <Style x:Key="FocusVisual">
         <Setter Property="Control.Template">
@@ -109,7 +107,7 @@
         </Setter>
     </Style>
 
-    <Style x:Key="BackButton" TargetType="{x:Type Button}">
+    <Style x:Key="BackButton" TargetType="{x:Type Button}"> <!--back button-->
         <Setter Property="Width" Value="30"/>
         <Setter Property="Height" Value="30"/>
         <Setter Property="Cursor" Value="Hand"/>
@@ -148,13 +146,13 @@
             </Setter.Value>
         </Setter>
     </Style>
-    <SolidColorBrush x:Key="ForegroundMain" Color="Black"/>
+    <SolidColorBrush x:Key="ForegroundMain" Color="#c1bbdd"/>
 
     <Style x:Key="CardButton" TargetType="{x:Type Button}">    <!--карточки ресторанов-->
         <Setter Property="Cursor" Value="Hand"/>
         <Setter Property="Background">
             <Setter.Value>
-                <SolidColorBrush Color="{DynamicResource White}"/>
+                <SolidColorBrush Color="{DynamicResource White}"/> <!--заливка карточки-->
             </Setter.Value>
         </Setter>
         <Setter Property="Foreground" Value="{StaticResource ForegroundMain}"/>
@@ -198,7 +196,7 @@
         <Setter Property="FontSize" Value="24"/>
         <Setter Property="FontFamily" Value="{DynamicResource FontFamily1}"/>
         <Setter Property="FontWeight" Value="Bold"/>
-        <Setter Property="TextAlignment" Value="Center"/>
+        <Setter Property="TextAlignment" Value="Left"/>
     </Style>
     <Style x:Key="CardDescrText" TargetType="{x:Type TextBlock}">
         <Setter Property="TextWrapping" Value="Wrap"/>
@@ -207,7 +205,6 @@
         <Setter Property="FontSize" Value="14"/>
         <Setter Property="MaxHeight" Value="100"/>
     </Style>
-
     <Style x:Key="PageTitleText" TargetType="{x:Type TextBlock}">
         <Setter Property="TextWrapping" Value="Wrap"/>
         <Setter Property="TextAlignment" Value="Center"/>
@@ -220,13 +217,13 @@
             </Setter.Value>
         </Setter>
     </Style>
-    <Style x:Key="PageDescrText" TargetType="{x:Type TextBlock}">
+    <Style x:Key="PageDescrText" TargetType="{x:Type TextBlock}"> <!--о ресторане-->
         <Setter Property="TextWrapping" Value="Wrap"/>
-        <Setter Property="FontSize" Value="16"/>
+        <Setter Property="FontSize" Value="17"/>
+        <Setter Property="Foreground" Value="#c1bbdd"/>
         <Setter Property="FontFamily" Value="{DynamicResource FontFamily1}"/>
         <Setter Property="Margin" Value="0 10"/>
     </Style>
-
     <Style x:Key="HeaderTitleText" TargetType="{x:Type TextBlock}">  
         <Setter Property="TextWrapping" Value="Wrap"/>
         <Setter Property="FontSize" Value="32"/>
@@ -239,12 +236,12 @@
     <Style x:Key="BookingControlText" TargetType="{x:Type TextBlock}">
         <Setter Property="TextWrapping" Value="Wrap"/>
         <Setter Property="FontFamily" Value="{DynamicResource FontFamily1}"/>
-        <Setter Property="FontSize" Value="16"/>
+        <Setter Property="FontSize" Value="17"/>
     </Style>
 
-    <Style x:Key="LongControlButton" TargetType="{x:Type Button}"> 
+    <Style x:Key="LongControlButton" TargetType="{x:Type Button}">  <!--кнопки-->
         <Setter Property="Cursor" Value="Hand"/>
-        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="Background" Value="#39325b"/>
         <Setter Property="BorderBrush" Value="{DynamicResource AccentGreen}"/>
         <Setter Property="Foreground" Value="{DynamicResource ForegroundMain}"/>
         <Setter Property="BorderThickness" Value="2"/>
@@ -266,11 +263,11 @@
                     </Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="true">
-                            <Setter Property="Background" Value="{DynamicResource AccentGreen}"/>
+                            <Setter Property="Background" Value="#2c274b"/>
                             <Setter Property="Foreground" Value="{DynamicResource WhiteColor}"/>
                         </Trigger>
                         <Trigger Property="IsEnabled" Value="False">
-                            <Setter Property="Background" Value="#FF9EC992"/>
+                            <Setter Property="Background" Value="DarkGray"/>
                             <Setter Property="Foreground" Value="#FF7A7A7A"/>
                         </Trigger>
                     </ControlTemplate.Triggers>
@@ -287,7 +284,7 @@
         <Setter Property="FontFamily" Value="{DynamicResource FontFamily1}"/>
     </Style>
 
-    <Style x:Key="LoginTextBox" TargetType="{x:Type TextBox}">
+    <Style x:Key="LoginTextBox" TargetType="{x:Type TextBox}">  <!--для ввода-->
         <Setter Property="Width" Value="200"/>
         <Setter Property="TextWrapping" Value="NoWrap"/>
         <Setter Property="FontSize" Value="16"/>
@@ -363,10 +360,10 @@
         </Setter>
     </Style>
 
-    <Style x:Key="DateTimePickerStyle" TargetType="{x:Type xctk:DateTimePicker}">
+    <Style x:Key="DateTimePickerStyle" TargetType="{x:Type xctk:DateTimePicker}">  <!--выбор даты окошко-->
         <Setter Property="Background" Value="Transparent"/>
         <Setter Property="Foreground" Value="{DynamicResource ForegroundMain}"/>
-        <Setter Property="BorderBrush" Value="{DynamicResource AccentGreen}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource AccentGreen}"/>  
         <Setter Property="BorderThickness" Value="1"/>
         <Setter Property="IsTabStop" Value="False"/>
         <Setter Property="HorizontalContentAlignment" Value="Right"/>

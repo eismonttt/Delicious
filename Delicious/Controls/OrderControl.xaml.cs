@@ -63,7 +63,13 @@ namespace Delicious
             using (DeliciousEntities context = new DeliciousEntities())
             {
                 // формируем новый список мест конкретно этого ресторана
-                List<Orders> newOrders = context.Orders.Where(order => order.UserId == ParentWindow.CurrentUser.Id).ToList();
+                List<Orders> newOrders = context.Orders
+                    .Where(order => order.UserId == ParentWindow.CurrentUser.Id)
+                    .AsDbQuery()
+                    .Include(x=>x.RestaurantsPlaces)
+                    .AlsoInclude(x=>x.Places)
+                    .AlsoInclude(x=>x.Restaurants)
+                    .ToList();
 
                 // заполняем список брони элементами управления
                 foreach (Orders order in newOrders)

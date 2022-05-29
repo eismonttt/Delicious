@@ -31,7 +31,6 @@ namespace Delicious
         public SignPage(LoginWindow w)
         {
             InitializeComponent();
-
             LoginWindow = w;
         }
 
@@ -76,7 +75,6 @@ namespace Delicious
             }
 
         }
-
         private void BackPage(object sender, RoutedEventArgs e)
         {
             LoginWindow.loginFrame.GoBack();
