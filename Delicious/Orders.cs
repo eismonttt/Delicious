@@ -20,6 +20,6 @@ namespace Delicious
         public string BookDate { get; set; }
     
         public  RestaurantsPlaces RestaurantsPlaces { get; set; }
-        public  Users Users { get; set; }
+        public  User Users { get; set; }
     }
 }

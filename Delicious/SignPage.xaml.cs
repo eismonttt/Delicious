@@ -57,7 +57,7 @@ namespace Delicious
             // если введенные данные валидны
             if (usernameMatch && passwordMatch)
             {
-                Users user;
+                User user;
                 using (DeliciousEntities context = new DeliciousEntities())
                 {
                     user = context.Users.Where(u => u.Username == _username && u.Password == _password).FirstOrDefault();

@@ -26,7 +26,7 @@ namespace Delicious
         public DbSet<Places> Places { get; set; }
         public DbSet<Restaurants> Restaurants { get; set; }
         public DbSet<RestaurantsPlaces> RestaurantsPlaces { get; set; }
-        public DbSet<Users> Users { get; set; }
+        public DbSet<User> Users { get; set; }
 
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
@@ -58,7 +58,7 @@ namespace Delicious
                 .WithRequired(x => x.Places)
                 .HasForeignKey(x => x.PlaceId);
 
-            modelBuilder.Entity<Users>()
+            modelBuilder.Entity<User>()
                 .HasMany(x => x.Orders)
                 .WithRequired(x => x.Users)
                 .HasForeignKey(x => x.UserId);

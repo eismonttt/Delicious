@@ -10,9 +10,9 @@ namespace Delicious
     /// </summary>
     public partial class MainWindow : Window
     {
-        public Users CurrentUser { get; set; }
+        public User CurrentUser { get; set; }
         public List<RestaurantCard> Restaurants { get; set; } = new List<RestaurantCard>();
-        public MainWindow(Users user)
+        public MainWindow(User user)
         {
             InitializeComponent();
             CurrentUser = user;
