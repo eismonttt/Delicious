@@ -6,7 +6,8 @@
         mc:Ignorable="d" d:DesignHeight="450" d:DesignWidth="800" Title="Page1Admin">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <DataGrid x:Name="restGrid"
@@ -38,10 +39,10 @@
         </DataGrid>
 
         <StackPanel Orientation="Horizontal"
+                    Grid.Row="2"
                     Height="62"
                     HorizontalAlignment="Stretch"
-                    VerticalAlignment="Center" 
-                    Margin="15,195,523.6,163">
+                    VerticalAlignment="Center">
 
             <Button Content="Отмена" Click="OnCancel" 
                     Style="{DynamicResource LongControlButton}" 
