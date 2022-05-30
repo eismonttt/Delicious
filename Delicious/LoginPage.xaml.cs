@@ -56,7 +56,7 @@ namespace Delicious
             // если все введено правильно
             if (usernameMatch && passwordMatch && userRealNameMatch)
             {
-                List<Users> alreadyUsers = new List<Users>();
+                List<User> alreadyUsers = new List<User>();
 
                 // создаем обращение к бд
                 using(DeliciousEntities context = new DeliciousEntities())
@@ -73,7 +73,7 @@ namespace Delicious
                 // если пользователя нет в бд, то регистрируем его 
                 else
                 {
-                    Users newUser = new Users()
+                    User newUser = new User()
                     {
                         Username = _username,
                         Password = _password,

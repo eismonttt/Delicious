@@ -69,8 +69,6 @@ namespace Delicious
                 }
             }
 
-           
-
             public int Capacity
             {
                 get => RestaurantsPlaces.PlaceCount;
@@ -105,6 +103,67 @@ namespace Delicious
                 Places = RestaurantsPlaces.Places;
             }
 
+            public RestourauntsViewModel() : this(new Restaurants())
+            {
+
+            }
+
+        }
+
+        private class UserViewModel : INotifyPropertyChanged
+        {
+            public event PropertyChangedEventHandler PropertyChanged;
+            private readonly User user;
+
+
+            public string Username 
+            {
+                get => user.Username;
+                set
+                {
+                    user.Username = value;
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Username)));
+                }
+            }
+            public string Password 
+            {
+                get => user.Password;
+                set
+                {
+                    user.Password = value;
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Password)));
+                }
+            }
+            public string Name 
+            {
+                get => user.Name;
+                set
+                {
+                    user.Name = value;
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Name)));
+                }
+            }
+
+            public bool IsAdmin 
+            {
+                get => user.IsAdmin;
+                set
+                {
+                    user.IsAdmin = value;
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(IsAdmin)));
+                }
+            }
+
+
+            public UserViewModel(User user)
+            {
+                this.user = user;
+            }
+
+            public UserViewModel() : this(new User())
+            {
+
+            }
         }
 
         private class AdminPageViewModel : ICommand
@@ -112,6 +171,7 @@ namespace Delicious
 
             private readonly DeliciousEntities deliciousEntities;
             private readonly ObservableCollection<RestourauntsViewModel> restaurants;
+            private ObservableCollection<UserViewModel> users;
             private readonly List<RestourauntsViewModel> originRestaraunts;
 
             public event EventHandler CanExecuteChanged
@@ -127,7 +187,7 @@ namespace Delicious
                 originRestaraunts = new List<RestourauntsViewModel>();
             }
 
-            public IEnumerable GetSource()
+            public IEnumerable GetRestorauntSource()
             {
                 deliciousEntities
                     .Restaurants
@@ -143,6 +203,17 @@ namespace Delicious
                     });
 
                 return restaurants;
+            }
+
+            public IEnumerable GetUserSource()
+            {
+                var usersFromDb = deliciousEntities.Users
+                    .ToArray()
+                    .Select(x => new UserViewModel(x));
+
+                users = new ObservableCollection<UserViewModel>(usersFromDb);
+
+                return users;
             }
 
             public bool CanExecute(object parameter)
@@ -185,7 +256,8 @@ namespace Delicious
 
         private void OnLoaded(object sender, RoutedEventArgs e)
         {
-            restGrid.ItemsSource = dataContext.GetSource();
+            restGrid.ItemsSource = dataContext.GetRestorauntSource();
+            userGrid.ItemsSource = dataContext.GetUserSource();
         }
 
         private void OnSave(object sender, RoutedEventArgs e)

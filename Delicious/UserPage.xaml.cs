@@ -12,7 +12,7 @@ namespace Delicious
     public partial class UserPage : Page
     {
         public MainWindow ParentWindow { get; set; }
-        public Users User { get; set; }
+        public User User { get; set; }
         public List<OrderControl> UserOrders { get; set; } = new List<OrderControl>();
         public UserPage(MainWindow w)
         {
