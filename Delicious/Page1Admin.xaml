@@ -3,20 +3,17 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        mc:Ignorable="d" 
-        d:DesignHeight="450"   
-        d:DesignWidth="800"
-        Title="Page1Admin">
+        mc:Ignorable="d" d:DesignHeight="450" d:DesignWidth="800" Title="Page1Admin">
 
     <Grid>
         <DataGrid x:Name="restGrid"
                   AutoGenerateColumns="False"
-                  CanUserAddRows="True">
+                  CanUserAddRows="True" Background="#c1bbdd">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Название" Binding="{Binding Name}"/>
                 <DataGridTextColumn Header="Расположение" Binding="{Binding Location}"/>
                 <DataGridTextColumn Header="Кол-во мест в ресторане" Binding="{Binding Capacity}"/>
-                <DataGridTextColumn Header="Кол-во забронированных мест мест в ресторане" Binding="{Binding BookPlaces, Mode=OneWay}"/>
+                <DataGridTextColumn Header="Кол-во забронированных мест в ресторане" Binding="{Binding BookPlaces, Mode=OneWay}"/>
                 <DataGridTextColumn Header="Кол-во свободных мест в ресторане" Binding="{Binding FreePlaces, Mode=OneWay}"/>
                 <DataGridTextColumn Header="Фото" Binding="{Binding Image}"/>
                 <DataGridTextColumn Header="открытие" Binding="{Binding OpensTime}"/>
@@ -24,16 +21,21 @@
             </DataGrid.Columns>
         </DataGrid>
         <StackPanel Orientation="Horizontal"
-                    Width="120"
-                    Height="30"
+                    Height="62"
                     HorizontalAlignment="Stretch"
-                    VerticalAlignment="Center">
-            <Button Content="Отмена" Click="OnCancel"/>
+                    VerticalAlignment="Center" 
+                    Margin="15,195,523.6,163">
+            
+            <Button Content="Отмена" Click="OnCancel" 
+                    Style="{DynamicResource LongControlButton}" 
+                    Margin="0,0,0,20.4" Width="120"/>
+            
             <Button x:Name="SaveChanges" 
-                    Command="{Binding AdminPageViewModel}"
+                    Style="{DynamicResource LongControlButton}"
+                    Command="{Binding }"
                     Content="Сохранить" 
-                    Margin="10 0 10 0" 
-                    Click="OnSave"/>
+                    Margin="10,0,10,20.4" 
+                    Click="OnSave" Width="120"/>
         </StackPanel>
     </Grid>
 </Window>

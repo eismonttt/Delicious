@@ -317,6 +317,7 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Images\Dishes\18.jpg" />
     <Resource Include="iconINTR.png" />
     <Resource Include="Images\iconINTR.png" />
     <Resource Include="pageebg.jpg" />

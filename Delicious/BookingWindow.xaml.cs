@@ -32,7 +32,7 @@ namespace Delicious
             Place = place;
             RestaurantPage = restPage;
 
-            prepurchase.Text = (Place.PlacePrice / 2).ToString();
+            prepurchase.Text = (Place.PlacePrice / 2).ToString();  
         }
 
         private void BookClick(object sender, RoutedEventArgs e)

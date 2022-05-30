@@ -69,7 +69,7 @@ namespace Delicious
                 }
             }
 
-            public bool IsNew { get; }
+           
 
             public int Capacity
             {
@@ -105,55 +105,10 @@ namespace Delicious
                 Places = RestaurantsPlaces.Places;
             }
 
-            public RestourauntsViewModel() : this(new Restaurants())
-            {
-                IsNew |= true;
-            }
         }
 
         private class AdminPageViewModel : ICommand
         {
-            private class SaveChangesCommand : ICommand
-            {
-                public event EventHandler CanExecuteChanged
-                {
-                    add => CommandManager.RequerySuggested += value;
-                    remove => CommandManager.RequerySuggested -= value;
-                }
-
-                public bool CanExecute(object parameter)
-                {
-                    
-                }
-
-                public void Execute(object parameter)
-                {
-                    var changedRestaraunts = restaurants
-                        .Intersect(originRestaraunts)
-
-                        .ToArray();
-
-                    var newRestaraunts = restaurants
-                        .Except(originRestaraunts)
-                        .Select(x => x.Restaurants)
-                        .ToArray();
-
-                    var deletedRestoraunts = originRestaraunts
-                        .Except(changedRestaraunts)
-                        .Select(x => x.Restaurants)
-                        .ToArray();
-
-                    deliciousEntities.Restaurants.BulkUpdate(changedRestaraunts.Select(x => x.Restaurants));
-                    deliciousEntities.Restaurants.AddRange(newRestaraunts);
-                    deliciousEntities.Restaurants.RemoveRange(deletedRestoraunts);
-                    deliciousEntities.SaveChanges();
-                }
-
-                public SaveChangesCommand()
-                {
-
-                }
-            }
 
             private readonly DeliciousEntities deliciousEntities;
             private readonly ObservableCollection<RestourauntsViewModel> restaurants;

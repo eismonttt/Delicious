@@ -169,7 +169,7 @@
                             <VisualBrush Visual="{Binding ElementName=clippingBorder}"/>
                         </Grid.OpacityMask>
                         <Border
-                            CornerRadius="20"
+                            CornerRadius="10"
                             x:Name="clippingBorder">
                             <Border.Background>
                                 <SolidColorBrush Color="{DynamicResource White}"/>

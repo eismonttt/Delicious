@@ -61,35 +61,35 @@
       <FileName>Dishes.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Delicious.Menus" Collapsed="true">
-    <Position X="6.25" Y="4.5" Width="1.5" />
+  <Class Name="Delicious.Menus">
+    <Position X="6.25" Y="6.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAACABAAAAAAAAAAAAQAAAAAAEAAAAAAAAAEAAAAAAA=</HashCode>
       <FileName>Menus.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Delicious.Orders" Collapsed="true">
+  <Class Name="Delicious.Orders">
     <Position X="9.75" Y="4.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAACACAAAgAAAAAAAAACAAgAAAAAAAAAAQAAAAAAAAA=</HashCode>
       <FileName>Orders.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Delicious.Places" Collapsed="true">
-    <Position X="2.75" Y="5.5" Width="1.5" />
+  <Class Name="Delicious.Places">
+    <Position X="1" Y="6.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAACAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA=</HashCode>
       <FileName>Places.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Delicious.Restaurants" Collapsed="true">
-    <Position X="9.75" Y="5.5" Width="1.5" />
+    <Position X="8" Y="7.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAACAAAAAhAAAAAAAAIAAAQAAAAAABAAAAAAEAAAACA=</HashCode>
       <FileName>Restaurants.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Delicious.RestaurantsPlaces" Collapsed="true">
+  <Class Name="Delicious.RestaurantsPlaces">
     <Position X="2.75" Y="6.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAECABAAAAAAAAAAAAAAAAAAAAAIAEAAAEAEAAAABAQ=</HashCode>
@@ -97,7 +97,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="Delicious.Users">
-    <Position X="9.75" Y="6.5" Width="1.5" />
+    <Position X="9.75" Y="6.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAECAAAAAAAAAAAAAQAAAAQACAAAAAACAAAAAAAAAAA=</HashCode>
       <FileName>Users.cs</FileName>
@@ -154,7 +154,7 @@
   <Class Name="Delicious.Page1Admin" Collapsed="true" BaseTypeListCollapsed="true">
     <Position X="1" Y="5.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>EAQAACAAAAAQAAAAQAIAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>EAAAACAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAIAAAAA=</HashCode>
       <FileName>Page1Admin.xaml.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" Collapsed="true" />
@@ -168,7 +168,7 @@
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
   <Class Name="Delicious.RestaurantsPage" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="1" Y="6.5" Width="1.5" />
+    <Position X="2.75" Y="5.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAgAAAAAACAAAABAAAACQAAAAAAA=</HashCode>
       <FileName>RestaurantsPage.xaml.cs</FileName>
@@ -176,7 +176,7 @@
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
   <Class Name="Delicious.SignPage" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="6.25" Y="6.5" Width="1.5" />
+    <Position X="6.25" Y="4.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAACAAAAEAAAAQAAAgAAAAAAEAAAACAAAAAAAAA=</HashCode>
       <FileName>SignPage.xaml.cs</FileName>

@@ -14,10 +14,11 @@
 
            
             <StackPanel>
-                <TextBlock Text="РЕСТОРАНЫ МИНСКА" Style="{DynamicResource PageTitleText}"/>
-                <TextBlock Text="Выбирайте лучшие места для досуга в столице" Foreground="#72757E" HorizontalAlignment="Center" FontSize="20" FontFamily="Candara" FontWeight="Light"/>
-                   
-                <Button x:Name="ClickToAdm" Click="ClickToAdm_Click" Width="100" Height="30" Content="редактировать" />
+                <TextBlock Text="ТОП 9 РЕСТОРАНОВ МИНСКА" Style="{DynamicResource PageTitleText}"/>
+                <TextBlock Text="Выбирайте лучшие места для досуга в столице" Foreground="#72757E" HorizontalAlignment="Center" FontSize="20" FontFamily="Candara" FontWeight="Light" Height="49"/>
+
+                <Button x:Name="ClickToAdm" Click="ClickToAdm_Click" Width="181" Height="46" Content="Редактировать" 
+                        Style="{DynamicResource LongControlButton}"/>
                 
                 <ItemsControl Margin="60 40" Grid.Row="1" Name="restaurantsContainer"> <!--вертикаьное расположение за счет страк панел-->
                     <ItemsControl.ItemsPanel>
