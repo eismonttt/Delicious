@@ -113,43 +113,43 @@ namespace Delicious
         private class UserViewModel : INotifyPropertyChanged
         {
             public event PropertyChangedEventHandler PropertyChanged;
-            private readonly User user;
 
+            public User User { get; }
 
             public string Username 
             {
-                get => user.Username;
+                get => User.Username;
                 set
                 {
-                    user.Username = value;
+                    User.Username = value;
                     PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Username)));
                 }
             }
             public string Password 
             {
-                get => user.Password;
+                get => User.Password;
                 set
                 {
-                    user.Password = value;
+                    User.Password = value;
                     PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Password)));
                 }
             }
             public string Name 
             {
-                get => user.Name;
+                get => User.Name;
                 set
                 {
-                    user.Name = value;
+                    User.Name = value;
                     PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Name)));
                 }
             }
 
             public bool IsAdmin 
             {
-                get => user.IsAdmin;
+                get => User.IsAdmin;
                 set
                 {
-                    user.IsAdmin = value;
+                    User.IsAdmin = value;
                     PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(IsAdmin)));
                 }
             }
@@ -157,7 +157,7 @@ namespace Delicious
 
             public UserViewModel(User user)
             {
-                this.user = user;
+                this.User = user;
             }
 
             public UserViewModel() : this(new User())
@@ -171,8 +171,9 @@ namespace Delicious
 
             private readonly DeliciousEntities deliciousEntities;
             private readonly ObservableCollection<RestourauntsViewModel> restaurants;
-            private ObservableCollection<UserViewModel> users;
             private readonly List<RestourauntsViewModel> originRestaraunts;
+            private readonly ObservableCollection<UserViewModel> users;
+            private readonly List<UserViewModel> originUsers;
 
             public event EventHandler CanExecuteChanged
             {
@@ -185,6 +186,8 @@ namespace Delicious
                 deliciousEntities = new DeliciousEntities();
                 restaurants = new ObservableCollection<RestourauntsViewModel>();
                 originRestaraunts = new List<RestourauntsViewModel>();
+                users = new ObservableCollection<UserViewModel>();
+                originUsers = new List<UserViewModel>();
             }
 
             public IEnumerable GetRestorauntSource()
@@ -207,11 +210,15 @@ namespace Delicious
 
             public IEnumerable GetUserSource()
             {
-                var usersFromDb = deliciousEntities.Users
+                deliciousEntities.Users
                     .ToArray()
-                    .Select(x => new UserViewModel(x));
-
-                users = new ObservableCollection<UserViewModel>(usersFromDb);
+                    .Select(x => new UserViewModel(x))
+                    .ToList()
+                    .ForEach(x =>
+                    {
+                        users.Add(x);
+                        originUsers.Add(x);
+                    });
 
                 return users;
             }
@@ -237,9 +244,28 @@ namespace Delicious
                     .Select(x => x.Restaurants)
                     .ToArray();
 
+                var changedUsers = users
+                    .Intersect(originUsers)
+                    .ToArray();
+
+                var newUsers = users
+                    .Except(originUsers)
+                    .Select(x => x.User)
+                    .ToArray();
+
+                var deletedUsers = originUsers
+                    .Except(changedUsers)
+                    .Select(x => x.User)
+                    .ToArray();
+
                 deliciousEntities.Restaurants.BulkUpdate(changedRestaraunts.Select(x => x.Restaurants));
                 deliciousEntities.Restaurants.AddRange(newRestaraunts);
                 deliciousEntities.Restaurants.RemoveRange(deletedRestoraunts);
+
+                deliciousEntities.Users.BulkUpdate(changedUsers.Select(x => x.User));
+                deliciousEntities.Users.AddRange(newUsers);
+                deliciousEntities.Users.RemoveRange(deletedUsers);
+
                 deliciousEntities.SaveChanges();
             }
         }
